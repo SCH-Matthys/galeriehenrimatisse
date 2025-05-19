@@ -1,0 +1,12 @@
+@use "../abstract/variable" as var;
+@use "../base/typo";
+
+a, p, span{
+    font-family: Urbanist;
+} 
+
+h1, h2, h3{
+    font-family: CormorantGaramond;
+    font-weight: light;
+}
+

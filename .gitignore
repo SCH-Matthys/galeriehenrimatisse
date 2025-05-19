@@ -23,3 +23,6 @@
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+
+# Supprimer /public/build/ si webpack encore est sur le projet
+# Supprimer /public/build/ si webpack encore est sur le projet

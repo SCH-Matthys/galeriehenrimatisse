@@ -1,0 +1,57 @@
+@use "./../abstract/variable" as var;
+
+header{
+    background-color: var.$background-color;
+    // border-bottom: solid 2px black;
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        >a{
+            display: inline-block;
+                margin-left: 50%;
+                transform: translateX(-50%);
+            h1{
+                font-size: 32px;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                color: black;
+                span{
+                    display: inline-block;
+                    width: 8px;
+                }
+            }
+        }
+        ul{
+            margin-left: auto;
+            display: flex;
+            li{
+                a{
+                    padding: 8px 8px;
+                }
+            }
+            li:nth-of-type(2){
+                p{
+                    padding: 0px 8px;
+                }
+            }
+        }
+    }
+    nav{
+        padding: 16px 0px;
+        // background-color: red;
+        ul{
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            li{
+                a{
+                    letter-spacing: 1px;
+                    font-size: 18px;
+                    padding: 8px 16px;
+                }
+            }
+        }
+    }
+}
