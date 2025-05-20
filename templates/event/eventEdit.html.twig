@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un événement{% endblock %}
+
+{% block main %}
+    <main id="mainGalleryEdit">
+        <h1>Modifier un événement</h1>
+        <p>Modifiez les données de l'événement.
+        {{ form_start(eventForm) }}
+            {{ form_widget(eventForm)}}
+            <button>Valider la modification</button>
+        {{ form_end(eventForm) }}
+    </main>
+{% endblock %}

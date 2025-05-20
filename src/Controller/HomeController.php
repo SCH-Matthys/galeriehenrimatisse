@@ -15,10 +15,4 @@ final class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
-
-    #[Route('/events', name: 'app_events')]
-    public function event(): Response
-    {
-        return $this->render('events/events.html.twig');
-    }
 }

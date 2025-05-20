@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset("css/style.css") }}">
     </head>
     <body>
@@ -12,17 +13,17 @@
                     <h1>Galerie <span></span> Henri <span></span> Matisse</h1>
                 </a>
                 <ul>
-                    <li><a href="">CONNEXION</a></li>
+                    <li><a href="{{ path("app_login") }}">CONNEXION</a></li>
                     <li><p>/</p></li>
-                    <li><a href="">INSCRIPTION</a></li>
-                    {# <li><a href="">DECONNEXION</a></li> #}
+                    <li><a href="{{ path("app_register") }}">INSCRIPTION</a></li>
+                    {# <li><a href="{{ path("app_logout") }}">DECONNEXION</a></li> #}
                 </ul>
             </div>
             <nav>
                 <ul>
                     <li><a href="{{ path("app_home") }}">ACCUEIL</a></li>
                     <li><a href="">INFORMATIONS</a></li>
-                    <li><a href="">EVENEMENTS</a></li>
+                    <li><a href="{{ path("app_event") }}">EVENEMENTS</a></li>
                     <li><a href="{{ path("app_gallery") }}">GALERIE</a></li>
                     {# <li><a href="">PROFIL</a></li> #}
                 </ul>

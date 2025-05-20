@@ -58,6 +58,7 @@ header div ul li:nth-of-type(2) p {
 }
 header nav {
   padding: 16px 0px;
+  border-bottom: 1px solid rgb(203, 203, 203);
 }
 header nav ul {
   display: flex;
@@ -173,6 +174,54 @@ header nav ul li a {
   width: 33.3333333333%;
   height: 450px;
   border: solid 1px black;
+}
+
+#mainEvents #s-events {
+  padding: 32px;
+  background-color: #f7f7f7;
+}
+#mainEvents #s-events > p {
+  margin: auto;
+  font-size: 18px;
+  width: 80%;
+  text-align: center;
+  padding-bottom: 16px;
+}
+#mainEvents #s-events div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+}
+#mainEvents #s-events div article {
+  border: solid 1px black;
+  margin-bottom: 32px;
+}
+#mainEvents #s-events div article .img-article {
+  width: calc(100vw - 66px);
+  border: solid 1px red;
+  height: 500px;
+}
+#mainEvents #s-events div article h4 {
+  font-family: CormorantGaramond;
+  letter-spacing: 1px;
+  font-size: 22px;
+  text-align: start;
+}
+#mainEvents #s-events div article p {
+  padding-left: 4px;
+  font-size: 18px;
+}
+#mainEvents #s-events div article a {
+  display: inline-block;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-radius: 4px;
+  color: black;
+  border: solid 1px #353535;
+  padding: 4px 16px;
+  background-color: #f7f7f7;
 }
 
 footer {

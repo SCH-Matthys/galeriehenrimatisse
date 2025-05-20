@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Événements{% endblock %}
+
+{% block main %}
+<main id="mainEvents">
+    <section id="s-events">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium odio ducimus quod! At modi qui aut praesentium expedita, quam delectus nostrum rem nemo quae id nisi veniam? Consequatur exercitationem veniam enim, corrupti ipsum sapiente blanditiis consectetur itaque eveniet? Laudantium velit in reiciendis? Deleniti, et reiciendis. Beatae nobis voluptatibus aut unde?</p>
+        <div>
+            {% for event in events %}
+                <article>
+                    <div class="img-article"></div>
+                    <h4> {{ event.title }}</h4>
+                    <p> {{ event.summary }}</p>
+                    <a href="{{ path('edit_event' ,{ "id": event.id }) }}">Modifier</a>
+                    <form method="POST" onsubmit="return confirm('Vous êtes sur de vouloir supprimer cet événement ?                   Cliquez sur [ OK ] pour valider la suppression.')"
+                            action="{{ path('delete_event', {'id': event.id}) }}">
+                        <input type="hidden" name="_method" value="delete">
+                        <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ event.id)}}">
+                        <input type="submit" id="delete" value="supprimer">
+                    </form>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock %}

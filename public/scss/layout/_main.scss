@@ -1,7 +1,9 @@
 @use "./../abstract/variable" as var;
 @use "./../base/typo";
 
-// page Home /////////////////////////////////////////////////////////////
+// page Home ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// page Home ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// page Home ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #mainHome{
     #hero-banner{
@@ -94,6 +96,10 @@
     }
 }
 
+// page Galerie ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// page Galerie ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// page Galerie ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #mainGallery{
     p{
         text-align: center;
@@ -110,6 +116,61 @@
             width: calc(100% / 3);
             height: 450px;
             border: solid 1px black;
+        }
+    }
+}
+
+// page Evenements ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// page Evenements ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// page Evenements ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#mainEvents{
+    #s-events{
+        padding: 32px;
+        // background-color: var.$background-color;
+        background-color: #f7f7f7;
+        >p{
+            margin: auto;
+            font-size: 18px;
+            width: 80%;
+            text-align: center;
+            padding-bottom: 16px;
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            width: 100%;
+            article{
+                border: solid 1px black;
+                margin-bottom: 32px;
+                .img-article{
+                    width: calc(100vw - 66px);
+                    border: solid 1px red;
+                    height: 500px;
+                }
+                h4{
+                    font-family: CormorantGaramond;
+                    letter-spacing: 1px;
+                    font-size: 22px;
+                    text-align: start;
+                }
+                p{
+                    padding-left: 4px;
+                    font-size: 18px;
+                }
+                a{
+                    display: inline-block;
+                    margin-left: 50%;
+                    transform: translateX(-50%);
+                    border-radius: 4px;
+                    color: black;
+                    border: solid 1px #353535;
+                    padding: 4px 16px;
+                    background-color: #f7f7f7;
+                }
+            }
         }
     }
 }
