@@ -9,7 +9,8 @@
         <div>
             {% for event in events %}
                 <article>
-                    <div class="img-article"></div>
+                    {# <div class="img-article"></div> #}
+                    <img src="{{ asset("uploads/images/" ~ event.imageName )}}" alt="">
                     <h4> {{ event.title }}</h4>
                     <p> {{ event.summary }}</p>
                     <a href="{{ path('edit_event' ,{ "id": event.id }) }}">Modifier</a>

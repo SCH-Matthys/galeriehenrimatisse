@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Form\UserTypeForm;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
@@ -24,7 +25,6 @@ class SecurityController extends AbstractController
 
         return $this->render('security/login.html.twig', [
             'last_username' => $lastUsername,
-            'error' => $error,
         ]);
     }
 
@@ -35,6 +35,8 @@ class SecurityController extends AbstractController
         $form = $this->createForm(UserTypeForm::class, $user);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
+            $user->setRoles(["ROLE_USER"]);
+            $user->setPassword($userPasswordHasherInterface->hashPassword($user,$form->get("plainPassword")->getData()));
             $entityManagerInterface->persist($user);
             $entityManagerInterface->flush();
             $this->addFlash("success", "Votre compte à bien été créé.");

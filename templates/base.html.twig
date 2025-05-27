@@ -13,10 +13,13 @@
                     <h1>Galerie <span></span> Henri <span></span> Matisse</h1>
                 </a>
                 <ul>
-                    <li><a href="{{ path("app_login") }}">CONNEXION</a></li>
-                    <li><p>/</p></li>
-                    <li><a href="{{ path("app_register") }}">INSCRIPTION</a></li>
-                    {# <li><a href="{{ path("app_logout") }}">DECONNEXION</a></li> #}
+                    {% if is_granted("ROLE_USER") %}
+                        <li><a href="{{ path("app_logout") }}">DECONNEXION</a></li>
+                    {% else %}
+                        <li><a href="{{ path("app_login") }}">CONNEXION</a></li>
+                        <li><p>/</p></li>
+                        <li><a href="{{ path("app_register") }}">INSCRIPTION</a></li>
+                    {% endif %}
                 </ul>
             </div>
             <nav>
@@ -25,7 +28,12 @@
                     <li><a href="">INFORMATIONS</a></li>
                     <li><a href="{{ path("app_event") }}">EVENEMENTS</a></li>
                     <li><a href="{{ path("app_gallery") }}">GALERIE</a></li>
-                    {# <li><a href="">PROFIL</a></li> #}
+                    {% if is_granted("ROLE_USER") %}
+                        <li><a href="{{ path('app_profil') }}">PROFIL</a></li>
+                    {% endif %}
+                    {% if is_granted("ROLE_ADMIN") %}
+                        {# <li><a href="">ADMIN</a></li> #}
+                    {% endif %}
                 </ul>
             </nav>
         </header>
@@ -35,7 +43,9 @@
 
     {% block footer %}
         <footer>
-            <h3>Galerie <span></span> Henri <span></span> Matisse</h3>
+            <a href="{{ path("app_home") }}">
+                <h3>Galerie <span></span> Henri <span></span> Matisse</h3>
+            </a>
         </footer>
     {% endblock %}
     </body>

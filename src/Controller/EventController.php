@@ -66,5 +66,14 @@ final class EventController extends AbstractController
             $this->addFlash("success", "L'événement à bien été supprimé.");
             return $this->redirectToRoute("app_event");
         }
+        return $this->redirectToRoute("app_event");
+    }
+
+    #[Route("/eventDetails/{id}", name:"details_event")]
+    public function detailsEvent( EventArticle $event){
+
+        return $this->render("event/eventDetails.html.twig", [
+            "event" => $event,
+        ]);
     }
 }

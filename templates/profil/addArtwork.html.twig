@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une oeuvre{% endblock %}
+
+{% block main %}
+    <main id="mainAddArtwork">
+        <h2>Ajouter une oeuvre à votre galerie</hé>
+        <p>Remplisez les données demandés puis validez pour ajouter l'oeuvre.
+        {{ form_start(form) }}
+            {{ form_widget(form)}}
+            <button>Ajouter l'oeuvre</button>
+        {{ form_end(form) }}
+    </main>
+{% endblock %}

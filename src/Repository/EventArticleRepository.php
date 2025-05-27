@@ -40,4 +40,23 @@ class EventArticleRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
+        // public function findLastFive(): array
+        // {
+        //     return $this->createQueryBuilder('e')
+        //                 ->orderBy('e.date', 'DESC')
+        //                 ->setMaxResults(5)
+        //                 ->getQuery()
+        //                 ->getResult();
+        // }
+
+        public function findLast(int $limit): array
+        {
+            return $this->createQueryBuilder("e")
+                        ->orderBy("e.date", "DESC")
+                        ->setMaxResults($limit)
+                        ->getQuery()
+                        ->getResult();
+        }
 }

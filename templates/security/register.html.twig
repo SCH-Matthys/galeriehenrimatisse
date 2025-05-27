@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+{% block main %}
+    <main id="mainRegister">
+        <form method="post">
+            <h1 class="h3 mb-3 font-weight-normal">Créez un compte :</h1>
+            {{ form_start(registerForm) }}
+                {{ form_row(registerForm.email, {
+                    "label": "Adresse mail :",
+                    "type": "email",
+                })}}
+                {{ form_row(registerForm.plainPassword, {
+                    "label": "Mot de passe :",
+                    "type": "password",
+                })}}
+                {{ form_row(registerForm.firstName, {
+                    "label": "Prénom :",
+                })}}
+                {{ form_row(registerForm.lastName, {
+                    "label": "Nom :",
+                })}}
+                {{ form_row(registerForm.alias, {
+                    "label": "Alias :",
+                })}}
+                <br>
+                <button>Créer mon compte</button>
+                <p>Vous avez déjà un compte ? <a href="{{ path("app_login") }}">Se connecter</a></p>
+            {{ form_end(registerForm)}}
+        </form>
+    </main>
+{% endblock %}
+{% endblock %}

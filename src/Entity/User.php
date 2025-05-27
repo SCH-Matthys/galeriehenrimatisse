@@ -43,6 +43,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToOne(inversedBy: 'users')]
     private ?SchoolIdentificator $school = null;
 
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Gallery $gallery = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -160,6 +163,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setSchool(?SchoolIdentificator $school): static
     {
         $this->school = $school;
+
+        return $this;
+    }
+
+    public function getGallery(): ?Gallery
+    {
+        return $this->gallery;
+    }
+
+    public function setGallery(?Gallery $gallery): static
+    {
+        // unset the owning side of the relation if necessary
+        if ($gallery === null && $this->gallery !== null) {
+            $this->gallery->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($gallery !== null && $gallery->getUser() !== $this) {
+            $gallery->setUser($this);
+        }
+
+        $this->gallery = $gallery;
 
         return $this;
     }

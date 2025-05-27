@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Événements{% endblock %}
+
+{% block main %}
+<main id="mainEventDetails">
+    <article>
+        <div>
+            <img src="{{ asset("uploads/images/" ~ event.imageName  )}}" alt="image/photo de l'événement {{ event.title }}">
+        </div>
+        <div>
+            <h1> {{ event.title }}</h1>
+            <p> {{ event.content }}</p>
+            <p>Ajouté le : {{ event.date|date('d/m/Y') }}</p>
+        </div>
+    </article>
+</main>
+{% endblock %}

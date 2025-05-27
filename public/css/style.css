@@ -77,6 +77,7 @@ header nav ul li a {
   background-repeat: no-repeat;
   background-size: cover;
   height: 250px;
+  border-bottom: solid 1px rgb(203, 203, 203);
 }
 #mainHome #s-events {
   padding: 32px;
@@ -85,52 +86,131 @@ header nav ul li a {
 #mainHome #s-events h2 {
   font-size: 28px;
   text-transform: uppercase;
-  padding-bottom: 16px;
+  margin-bottom: 16px;
+  padding-top: 64px;
   letter-spacing: 2px;
 }
-#mainHome #s-events div {
-  display: flex;
+#mainHome #s-events .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto auto auto auto auto;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
 }
-#mainHome #s-events div #events-left {
-  display: flex;
-  flex-direction: column;
-  margin-right: 16px;
+#mainHome #s-events .grid > a {
+  all: unset;
+  display: contents;
+  cursor: pointer;
 }
-#mainHome #s-events div #events-left div:nth-of-type(1) {
-  width: 850px;
+#mainHome #s-events .grid > a .div1 {
+  grid-area: 1/1/2/3;
   height: 500px;
-  border: solid 1px black;
-  margin-bottom: 16px;
-  display: flex;
-  flex-direction: column;
 }
-#mainHome #s-events div #events-left div:nth-of-type(2) {
-  display: flex;
-  width: 850px;
-  height: 500px;
-  border: solid 1px black;
+#mainHome #s-events .grid > a .div1 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
-#mainHome #s-events div #events-left div:nth-of-type(2) div:nth-last-of-type(1) {
-  width: calc(50% - 8px);
+#mainHome #s-events .grid > a .div2 {
+  grid-area: 2/1/3/3;
+  height: 100px;
 }
-#mainHome #s-events div #events-left div:nth-of-type(2) div:nth-last-of-type(2) {
-  width: calc(50% - 8px);
-  margin-right: 16px;
+#mainHome #s-events .grid > a .div2 h4 {
+  font-size: 26px;
+  letter-spacing: 1px;
+  font-family: CormorantGaramond;
 }
-#mainHome #s-events div #events-right {
-  display: flex;
-  flex-direction: column;
+#mainHome #s-events .grid > a .div2 p {
+  font-size: 18px;
+  font-family: Urbanist;
 }
-#mainHome #s-events div #events-right div:nth-of-type(1) {
-  width: 500px;
-  height: 400px;
-  border: solid 1px black;
-  margin-bottom: 16px;
+#mainHome #s-events .div3 {
+  grid-area: 1/3/3/4;
+  height: 616px;
 }
-#mainHome #s-events div #events-right div:nth-of-type(2) {
-  width: 500px;
-  height: 600px;
-  border: solid 1px black;
+#mainHome #s-events .div3 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+#mainHome #s-events .div4 {
+  grid-area: 3/3/4/4;
+  height: 100px;
+}
+#mainHome #s-events .div4 h4 {
+  font-size: 26px;
+  letter-spacing: 1px;
+  font-family: CormorantGaramond;
+}
+#mainHome #s-events .div4 p {
+  font-size: 18px;
+  font-family: Urbanist;
+}
+#mainHome #s-events .div5 {
+  grid-area: 3/1/5/2;
+  height: 616px;
+}
+#mainHome #s-events .div5 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+#mainHome #s-events .div6 {
+  grid-area: 5/1/6/2;
+  height: 100px;
+}
+#mainHome #s-events .div6 h4 {
+  font-size: 26px;
+  letter-spacing: 1px;
+  font-family: CormorantGaramond;
+}
+#mainHome #s-events .div6 p {
+  font-size: 18px;
+  font-family: Urbanist;
+}
+#mainHome #s-events .div7 {
+  grid-area: 3/2/5/3;
+  height: 616px;
+}
+#mainHome #s-events .div7 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+#mainHome #s-events .div8 {
+  grid-area: 5/2/6/3;
+  height: 100px;
+}
+#mainHome #s-events .div8 h4 {
+  font-size: 26px;
+  letter-spacing: 1px;
+  font-family: CormorantGaramond;
+}
+#mainHome #s-events .div8 p {
+  font-size: 18px;
+  font-family: Urbanist;
+}
+#mainHome #s-events .div9 {
+  grid-area: 4/3/6/4;
+  height: 616px;
+}
+#mainHome #s-events .div9 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+#mainHome #s-events .div10 {
+  grid-area: 6/3/7/4;
+  height: 100px;
+}
+#mainHome #s-events .div10 h4 {
+  font-size: 26px;
+  letter-spacing: 1px;
+  font-family: CormorantGaramond;
+}
+#mainHome #s-events .div10 p {
+  font-size: 18px;
+  font-family: Urbanist;
 }
 #mainHome #s-discover {
   padding: 32px;
@@ -222,6 +302,169 @@ header nav ul li a {
   border: solid 1px #353535;
   padding: 4px 16px;
   background-color: #f7f7f7;
+}
+
+#mainRegister {
+  padding: 64px 32px;
+  background-color: #f5f5f5;
+}
+#mainRegister form {
+  margin: auto;
+  width: 426px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding-bottom: 16px;
+}
+#mainRegister form h1 {
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 24px;
+  padding-bottom: 16px;
+}
+#mainRegister form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding-bottom: 8px;
+}
+#mainRegister form div label {
+  font-size: 18px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  font-family: Urbanist;
+  letter-spacing: 1px;
+}
+#mainRegister form div input {
+  font-size: 16px;
+  border-radius: 32px;
+  border: solid 1px rgb(110, 110, 110);
+  display: inline-block;
+  width: 400px;
+  padding: 8px 12px;
+  font-family: Urbanist;
+  letter-spacing: 1px;
+}
+#mainRegister form button {
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 32px;
+  border: solid 2px rgb(0, 0, 0);
+  display: inline-block;
+  width: 426px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: Urbanist;
+  transition: 0.2s;
+}
+#mainRegister form button:hover {
+  color: white;
+  background-color: black;
+}
+#mainRegister form p {
+  padding-left: 8px;
+  font-family: Urbanist;
+  padding-top: 16px;
+}
+
+#mainLogin {
+  padding: 64px 32px;
+  background-color: #f5f5f5;
+}
+#mainLogin form {
+  margin: auto;
+  width: 426px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding-bottom: 16px;
+}
+#mainLogin form h1 {
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 24px;
+  padding-bottom: 16px;
+}
+#mainLogin form label {
+  font-size: 18px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  font-family: Urbanist;
+  letter-spacing: 1px;
+}
+#mainLogin form input {
+  font-size: 16px;
+  border-radius: 32px;
+  border: solid 1px rgb(110, 110, 110);
+  display: inline-block;
+  width: 400px;
+  padding: 8px 12px;
+  font-family: Urbanist;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+#mainLogin form button {
+  margin-top: 16px;
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 32px;
+  border: solid 2px rgb(0, 0, 0);
+  display: inline-block;
+  width: 426px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: Urbanist;
+  transition: 0.2s;
+}
+#mainLogin form button:hover {
+  color: white;
+  background-color: black;
+}
+#mainLogin form p {
+  padding-left: 8px;
+  font-family: Urbanist;
+  padding-top: 16px;
+}
+
+#mainEventDetails {
+  margin: 32px;
+  min-height: 50vh;
+}
+#mainEventDetails article {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
+#mainEventDetails article div:nth-of-type(1) img {
+  max-width: 600px;
+  max-height: 800px;
+  object-fit: contain;
+  margin-right: 32px;
+}
+#mainEventDetails article div:nth-of-type(2) {
+  width: 600px;
+}
+#mainEventDetails article div:nth-of-type(2) h2 {
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+#mainEventDetails article div:nth-of-type(2) p {
+  font-family: Urbanist;
+  letter-spacing: 0.5px;
+  padding-top: 16px;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 footer {

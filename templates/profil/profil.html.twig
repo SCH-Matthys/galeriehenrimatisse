@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block main %}
+    <main id="mainProfil">
+        <section id="s-profil">
+            <div></div>
+            <div>
+                <p>Prénom : {{ user.firstName }}</p>
+                <p>Nom : {{ user.lastName }}</p>
+                <p>Alias d'artiste : {{ user.alias }}</p>
+            </div>
+        </section>
+        <div></div>
+        <section id="s-gallery">
+            {% if user.gallery == null %}
+                <a href="{{ path("app_createGallery") }}">Créez votre galerie</a>
+            {% else %}
+                <a href="{{ path("add_artwork") }}">Ajouter une oeuvre à votre galerie</a>
+            {% endif %}
+            <div id="arkworks">
+                {% for artwork in artworks %}
+                    <pre>
+                        {{ dump(artwork.gallery.user.id) }}
+                        {{ dump(user.id) }}
+                    </pre>
+                    <p>{{ artwork.name }}</p>
+                    <p>{{ artwork.description }}</p>
+
+                    {% if is_granted("ROLE_ADMIN") or user.id == artwork.gallery.user.id %}
+                        <a href="{{ path("edit_oeuvre", {"id": artwork.id}) }}">Modifier</a>
+                        <a href="">Supprimer</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+{% endblock %}

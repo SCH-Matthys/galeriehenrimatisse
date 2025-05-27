@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une oeuvre{% endblock %}
+
+{% block main %}
+    <main id="mainEditArtwork">
+        <h2>Modifier une oeuvre</h2>
+        <p>Modifiez les données demandés puis validez pour modifier l'oeuvre.</p>
+        {{ form_start(form) }}
+            {{ form_widget(form)}}
+            <button>Modifier l'oeuvre</button>
+        {{ form_end(form) }}
+    </main>
+{% endblock %}
