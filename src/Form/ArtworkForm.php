@@ -16,10 +16,6 @@ class ArtworkForm extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            // ->add('gallery', EntityType::class, [
-            //     'class' => Gallery::class,
-            //     'choice_label' => 'id',
-            // ])
         ;
     }
 

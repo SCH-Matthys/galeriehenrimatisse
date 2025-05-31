@@ -4,11 +4,11 @@
 
 {% block main %}
     <main id="mainEditArtwork">
-        <h2>Modifier une oeuvre</h2>
-        <p>Modifiez les données demandés puis validez pour modifier l'oeuvre.</p>
         {{ form_start(form) }}
+            <h2>Modifier une oeuvre de votre galerie :</h2>
+            <p>Modifiez les données demandés puis validez pour modifier l'oeuvre.</p>
             {{ form_widget(form)}}
-            <button>Modifier l'oeuvre</button>
+            <button class="btn">Valider la modification</button>
         {{ form_end(form) }}
     </main>
 {% endblock %}

@@ -18,14 +18,15 @@ use Symfony\Component\Routing\Attribute\Route;
 final class ProfilController extends AbstractController
 {
     #[Route('/profil', name: 'app_profil')]
-    public function index(Security $security, ArtworkRepository $artworkRepository): Response
+    public function index(Security $security): Response
     {
         $user = $security->getUser();
-        $artworks = $artworkRepository->findAll();
+        // $artworks = $artworkRepository->findAll();
 
         return $this->render('profil/profil.html.twig', [
             "user" => $user,
-            "artworks" => $artworks,
+            'gallery' => $user->getGallery(),
+            // "artworks" => $artworks,
         ]);
     }
  
@@ -95,15 +96,15 @@ final class ProfilController extends AbstractController
         ]);
     }
 
-    // #[Route("/profil/delete/{id}", name: "delete_artwork")]
-    // public function deleteEvent(EventArticle $event, Request $request, EntityManagerInterface $entityManagerInterface): Response
-    // {
-    //     if($this->isCsrfTokenValid("SUP".$event->getId(),$request->get("_token"))){
-    //         $entityManagerInterface->remove($event);
-    //         $entityManagerInterface->flush();
-    //         $this->addFlash("success", "L'événement à bien été supprimé.");
-    //         return $this->redirectToRoute("app_event");
-    //     }
-    //     return $this->redirectToRoute("app_event");
-    // }
+    #[Route("/profil/delete/{id}", name: "delete_artwork")]
+    public function deleteEvent(Artwork $artwork, Request $request, EntityManagerInterface $entityManagerInterface): Response
+    {
+        if($this->isCsrfTokenValid("SUP".$artwork->getId(),$request->get("_token"))){
+            $entityManagerInterface->remove($artwork);
+            $entityManagerInterface->flush();
+            $this->addFlash("success", "L'oeuvre à bien été supprimé.");
+            return $this->redirectToRoute("app_profil");
+        }
+        return $this->redirectToRoute("app_profil");
+    }
 }

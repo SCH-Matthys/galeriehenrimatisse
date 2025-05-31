@@ -9,51 +9,18 @@
             <h2>Évènements</h2>
             {# {{ dump(events) }} #}
             <div class="grid">
-                <a href="{{ path('details_event' ,{ "id": events[0].id }) }}">
-                    <div class="div1">
-                        <img src="{{ asset("uploads/images/" ~ events[0].imageName )}}" alt="">
-                    </div>
-                    <div class="div2">
-                        <h4>{{events[0].title}}</h4>
-                        <p>{{events[0].summary}}</p>
-                    </div>
-                </a>
-                <a href="{{ path('details_event' ,{ "id": events[1].id }) }}">
-                    <div class="div3">
-                        <img src="{{ asset("uploads/images/" ~ events[1].imageName )}}" alt="">
-                    </div>
-                    <div class="div4">
-                        <h4>{{events[1].title}}</h4>
-                        <p>{{events[1].summary}}</p>
-                    </div>
-                </a>
-                <a href="{{ path('details_event' ,{ "id": events[2].id }) }}">
-                    <div class="div5">
-                        <img src="{{ asset("uploads/images/" ~ events[2].imageName )}}" alt="">
-                    </div>
-                    <div class="div6">
-                        <h4>{{events[2].title}}</h4>
-                        <p>{{events[2].summary}}</p>
-                    </div>
-                </a>
-                <a href="{{ path('details_event' ,{ "id": events[3].id }) }}">
-                    <div class="div7">
-                        <img src="{{ asset("uploads/images/" ~ events[3].imageName )}}" alt="">
-                    </div>
-                    <div class="div8">
-                        <h4>{{events[3].title}}</h4>
-                        <p>{{events[3].summary}}</p>
-                    </div>
-                </a>
-                <a href="{{ path('details_event' ,{ "id": events[4].id }) }}">
-                    <div class="div9">
-                        <img src="{{ asset("uploads/images/" ~ events[4].imageName )}}" alt="">
-                    </div>
-                    <div class="div10">
-                        <h4>{{events[4].title}}</h4>
-                        <p>{{events[4].summary}}</p>
-                    </div>
-                </a>
+                {% for event in events %}
+                    {% set index = loop.index0 %}
+                    <a href="{{ path('details_event' ,{ "id": event.id }) }}">
+                        <div class="div{{ 1 + index * 2 }}">
+                            <img src="{{ asset("uploads/images/" ~ event.imageName )}}" alt="image en rapport avec l'événement">
+                        </div>
+                        <div class="div{{ 2 + index * 2 }}">
+                            <h4>{{event.title}}</h4>
+                            <p>{{event.summary}}</p>
+                        </div>
+                    </a>
+                {% endfor %}
             </div>
             {# <div>
                 <div id="events-left">

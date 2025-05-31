@@ -15,25 +15,29 @@
         <div></div>
         <section id="s-gallery">
             {% if user.gallery == null %}
-                <a href="{{ path("app_createGallery") }}">Créez votre galerie</a>
+                <a href="{{ path("app_createGallery") }}" class="btn">Créez votre galerie</a>
             {% else %}
-                <a href="{{ path("add_artwork") }}">Ajouter une oeuvre à votre galerie</a>
-            {% endif %}
-            <div id="arkworks">
-                {% for artwork in artworks %}
-                    <pre>
-                        {{ dump(artwork.gallery.user.id) }}
-                        {{ dump(user.id) }}
-                    </pre>
-                    <p>{{ artwork.name }}</p>
-                    <p>{{ artwork.description }}</p>
+                <a href="{{ path("add_artwork") }}" class="btn">Ajouter une oeuvre à votre galerie</a>
+                <div id="artworks">
+                {% for artwork in gallery.artworks %}
+                    <article>
+                        <p>{{ artwork.name }}</p>
+                        <p>{{ artwork.description }}</p>
 
-                    {% if is_granted("ROLE_ADMIN") or user.id == artwork.gallery.user.id %}
-                        <a href="{{ path("edit_oeuvre", {"id": artwork.id}) }}">Modifier</a>
-                        <a href="">Supprimer</a>
-                    {% endif %}
+                        {% if is_granted("ROLE_ADMIN") or user.id == artwork.gallery.user.id %}
+                            <a href="{{ path("edit_oeuvre", {"id": artwork.id}) }}">Modifier</a>
+                            <form method="POST" onsubmit="return confirm('Vous êtes sur de vouloir supprimer cette oeuvr ede votre galerie ? Cliquez sur [ OK ] pour valider la suppression.')"
+                                action="{{ path('delete_artwork', {'id': artwork.id}) }}">
+                                <input type="hidden" name="_method" value="delete">
+                                <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ artwork.id)}}">
+                                <input type="submit" id="delete" value="supprimer">
+                            </form>
+                        {% endif %}
+                    </article>
                 {% endfor %}
             </div>
+            {% endif %}
+            
         </section>
     </main>
 {% endblock %}

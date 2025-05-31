@@ -467,6 +467,133 @@ header nav ul li a {
   line-height: 22px;
 }
 
+#mainProfil {
+  padding: 32px;
+  background-color: #f5f5f5;
+}
+#mainProfil #s-profil {
+  display: flex;
+}
+#mainProfil #s-profil div:nth-of-type(1) {
+  background-color: white;
+  width: 200px;
+  height: 250px;
+  border: solid 1px rgb(203, 203, 203);
+  margin-right: 32px;
+}
+#mainProfil #s-profil div:nth-of-type(2) {
+  padding-top: 16px;
+}
+#mainProfil #s-profil div:nth-of-type(2) p {
+  padding-bottom: 8px;
+}
+#mainProfil > div:nth-of-type(1) {
+  margin: 32px auto;
+  width: 300px;
+  border-bottom: solid 1px rgb(203, 203, 203);
+}
+#mainProfil #s-gallery > a {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+}
+#mainProfil #s-gallery #artworks {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+#mainProfil #s-gallery #artworks article {
+  background-color: white;
+  width: calc(33.3333333333% - 76px);
+  border: solid 1px black;
+  height: 300px;
+  max-width: 400px;
+}
+
+#mainAddArtwork, #mainEditArtwork {
+  padding: 32px;
+}
+#mainAddArtwork form, #mainEditArtwork form {
+  margin: auto;
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding-bottom: 16px;
+}
+#mainAddArtwork form h2, #mainEditArtwork form h2 {
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 24px;
+  padding-bottom: 16px;
+}
+#mainAddArtwork form p, #mainEditArtwork form p {
+  font-family: Urbanist;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+#mainAddArtwork form div label, #mainEditArtwork form div label {
+  display: block;
+  font-size: 18px;
+  padding-left: 4px;
+  font-family: Urbanist;
+  letter-spacing: 1px;
+}
+#mainAddArtwork form div input, #mainEditArtwork form div input {
+  margin-top: 4px;
+  font-size: 16px;
+  border-radius: 32px;
+  border: solid 1px rgb(203, 203, 203);
+  display: inline-block;
+  width: 524px;
+  padding: 8px 12px;
+  font-family: Urbanist;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+#mainAddArtwork form div textarea, #mainEditArtwork form div textarea {
+  border: solid 1px rgb(203, 203, 203);
+  margin-top: 4px;
+  margin-bottom: 8px;
+  width: calc(100% - 34px);
+  min-height: 100px;
+  border-radius: 18px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-family: Urbanist;
+  letter-spacing: 1px;
+}
+#mainAddArtwork button, #mainEditArtwork button {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.btn {
+  background-color: white;
+  text-align: center;
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 32px;
+  border: solid 2px rgb(0, 0, 0);
+  display: inline-block;
+  width: 426px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: Urbanist;
+  transition: 0.2s;
+}
+.btn:hover {
+  color: white;
+  background-color: black;
+}
+
 footer {
   height: 250px;
   background-color: black;
