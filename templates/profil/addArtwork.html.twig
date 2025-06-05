@@ -4,10 +4,15 @@
 
 {% block main %}
     <main id="mainAddArtwork">
-        {{ form_start(form) }}
+        {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
+
+        {# {{ form_start(form, {'multipart': true}) }} #}
             <h2>Ajouter une oeuvre à votre galerie</h2>
             <p>Remplisez les données demandés puis validez pour ajouter l'oeuvre.
-            {{ form_widget(form)}}
+            {{ form_row(form.name) }}
+            {{ form_row(form.description) }}
+            {# {{ form_row(form.artworkImages) }} #}
+            {{ form_row(form.files) }}
             <button class="btn">Ajouter l'oeuvre</button>
         {{ form_end(form) }}
     </main>

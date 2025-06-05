@@ -6,9 +6,13 @@
     <main id="mainGallery">
         <p>Afin que la mise en avant des jeunes artistes soit faite de façon équivalente, la galerie selectione aléatoirement des oeuvres parmis celles des étudiants. A chaque nouvelle réouverture du site les oeuvres mises en avant sont, de cette façon, différentes.</p>
         <section id="s-gallery">
-            <article></article>
-            <article></article>
-            <article></article>
+            {% for artwork in artworks %}
+                <a href="{{ path("app_artworkDetails", {"id": artwork.id}) }}">
+                    <article>
+                        <img src="{{ asset('uploads/artworkImages/' ~ artwork.images[0].imageName) }}" alt="{{ artwork.name }}">
+                    </article>
+                </a>
+            {% endfor %}
         </section>
     </main>
 {% endblock %}

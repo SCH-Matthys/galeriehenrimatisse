@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Informations{% endblock %}
+
+{% block main %}
+    <main id="mainInformations">
+        <h2>Informations</h2>
+        <ul>
+            <li>
+                <details>
+                    <summary>- S'inscrire ou se connecter</summary>
+                    <p>Pour profiter pleinement du site vous devez être connecté.</p>
+                    <p>Cliquez sur <a href="{{ path("app_login") }}">Connexion / Inscription</a> dans le menu principal.</p>
+                    <p>Si vous êtes nouvel utilisateur, cliquez sur <a href="{{ path("app_register") }}">Créer un compte</a>.</p>
+                    <p>Une fois inscrit, <a href="{{ path("app_login") }}">Connectez-vous</a> avec votre adresse email et votre mot de passe.</p>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>- Galerie personnelle</summary>
+                    <p>Chaque utilisateur possède une galerie personnelle d'œuvres.</p>
+                    <p>Allez dans votre <a href="{{ path("app_profil") }}">Profil</a>.</p>
+                    <p>Cliquez sur <a href="{{ path("add_artwork") }}">Ajouter une œuvre</a> pour importer une ou plusieurs images avec un nom pour votre oeuvre et une description adaptée.</p>
+                    <p>Vous pouvez aussi modifier ou supprimer une œuvre à tout moment. A condition d'être connecté.</p>
+                    <p>Vos œuvres seront visibles dans votre galerie personnelle.</p>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>- Profil utilisateur</summary>
+                    <p>Votre profil centralise vos informations et vos actions :</p>
+                    <p>Vos œuvres publiées</p>
+                    <p>Vos informations personnelles</p>
+                    <p>Accédez-y depuis le bouton <a href="{{ path("app_profil") }}">Profil</a> dans la barre de navigation. ( Vous devez être <a href="{{ path("app_login") }}">Connecté</a> )</p>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>- Événements</summary>
+                    <p>La section Événements propose des expositions, concours et ateliers à venir.</p>
+                    <p>Nous vous postons régulièrement des articles aux sujets pouvant vous intéresser ou événements pouvant avoir lieu sur des campus. </p>
+                    <p>Depuis la page <a href="{{ path("app_event") }}">Événements</a>, vous pouvez :</p>
+                    <p>Consulter les événements à venir</p>
+                    <p>Voir les événements passés</p>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>- Commentaires et retours</summary>
+                    <p>Sous chaque événement, les utilisateurs peuvent laisser des commentaires constructifs.</p>
+                    <p>Utilisez le champ de commentaire pour poser une question ou donner votre avis.</p>
+                    <p>Les commentaires peuvent être modérés ou supprimés en cas d'abus.</p>
+                </details>
+            </li>
+            <li> 
+                <details>
+                    <summary>- Explorer les galeries des autres</summary>
+                    <p>Découvrez les créations des autres artistes dans la section <a href="{{ path("app_gallery") }}">Galerie</a>.</p>
+                    <p>Les œuvres sont choisis aléatoirement à chaque rafraichissement de page pour une équité totale envers les artistes</p>
+                    <p>Cliquez sur une œuvre pour la voir en grand et lire sa description ainsi que toutes les informations qui y sont liés.</p>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>- Support / Problème technique</summary>
+                    <p>En cas de problème :</p>
+                    <p>Vérifiez les informations de cette page.</p>
+                    <p>Contactez-nous via le formulaire Nous contacter.</p>
+                    <p>Vous pouvez aussi envoyer un mail à : <span> support@ecole-henri-matisse.fr </span></p>
+                </details>
+            </li>
+        </ul>
+    </main>
+{% endblock %}

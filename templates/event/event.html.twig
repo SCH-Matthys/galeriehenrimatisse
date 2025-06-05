@@ -5,21 +5,29 @@
 {% block main %}
 <main id="mainEvents">
     <section id="s-events">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium odio ducimus quod! At modi qui aut praesentium expedita, quam delectus nostrum rem nemo quae id nisi veniam? Consequatur exercitationem veniam enim, corrupti ipsum sapiente blanditiis consectetur itaque eveniet? Laudantium velit in reiciendis? Deleniti, et reiciendis. Beatae nobis voluptatibus aut unde?</p>
+        <p>Découvrez ici tous les événements officiels organisés par l'équipe de l'École Henri Matisse. <br> Expositions virtuelles, concours, rencontres artistiques… chaque événement est pensé pour valoriser la créativité et rassembler notre communauté. N'hésitez pas à laisser vos commentaires sous chaque événement pour partager vos impressions ou poser des questions. Tous les commentaires sont modérés par l'équipe afin de garantir un espace d'échange respectueux et constructif.</p>
         <div>
             {% for event in events %}
                 <article>
-                    {# <div class="img-article"></div> #}
-                    <img src="{{ asset("uploads/images/" ~ event.imageName )}}" alt="">
-                    <h4> {{ event.title }}</h4>
-                    <p> {{ event.summary }}</p>
-                    <a href="{{ path('edit_event' ,{ "id": event.id }) }}">Modifier</a>
-                    <form method="POST" onsubmit="return confirm('Vous êtes sur de vouloir supprimer cet événement ?                   Cliquez sur [ OK ] pour valider la suppression.')"
-                            action="{{ path('delete_event', {'id': event.id}) }}">
-                        <input type="hidden" name="_method" value="delete">
-                        <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ event.id)}}">
-                        <input type="submit" id="delete" value="supprimer">
-                    </form>
+                    <img src="{{ asset("uploads/images/" ~ event.imageName )}} " alt="">
+                    <div>
+                        <div>
+                            <h4> {{ event.title }}</h4>
+                            <p> {{ event.summary }}</p>
+                        </div>
+                        <div>
+                            <a href="{{ path('details_event' ,{ "id": event.id }) }}">Voir plus</a>
+                            {% if is_granted("ROLE_USER") %}
+                                <a href="{{ path('edit_event' ,{ "id": event.id }) }}">Modifier</a>
+                                <form method="POST" onsubmit="return confirm('Vous êtes sur de vouloir supprimer cet événement ?                   Cliquez sur [ OK ] pour valider la suppression.')"
+                                        action="{{ path('delete_event', {'id': event.id}) }}">
+                                    <input type="hidden" name="_method" value="delete">
+                                    <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ event.id)}}">
+                                    <input type="submit" id="delete" value="supprimer">
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
                 </article>
             {% endfor %}
         </div>

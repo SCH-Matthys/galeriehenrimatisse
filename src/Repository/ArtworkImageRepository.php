@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\Artwork;
+use App\Entity\ArtworkImage;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Artwork>
+ * @extends ServiceEntityRepository<ArtworkImage>
  */
-class ArtworkRepository extends ServiceEntityRepository
+class ArtworkImageRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Artwork::class);
+        parent::__construct($registry, ArtworkImage::class);
     }
 
 //    /**
-//     * @return Artwork[] Returns an array of Artwork objects
+//     * @return ArtworkImage[] Returns an array of ArtworkImage objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -31,7 +31,7 @@ class ArtworkRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Artwork
+//    public function findOneBySomeField($value): ?ArtworkImage
 //    {
 //        return $this->createQueryBuilder('a')
 //            ->andWhere('a.exampleField = :val')
@@ -40,13 +40,4 @@ class ArtworkRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-
-    public function findRandomArtwork(int $limit):array
-    {
-        return $this->createQueryBuilder("a")
-            ->orderBy("a.id")
-            ->setMaxResults($limit)
-            ->getQuery()
-            ->getResult();
-    }
 }

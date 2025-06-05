@@ -17,4 +17,12 @@ final class HomeController extends AbstractController
             "events" => $events,
         ]);
     }
+
+    #[Route('/informations', name: 'app_informations')]
+    public function information(): Response
+    {
+        return $this->render('informations/informations.html.twig', [
+            
+        ]);
+    }
 }

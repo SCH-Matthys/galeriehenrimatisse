@@ -214,9 +214,39 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            position: relative;
+            &::before{
+                content: "";
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.35);
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+            }
             p{
+                padding: 16px 32px;
+                z-index: 2;
+                color: white;
+                font-family: Urbanist;
+                letter-spacing: 1px;
                 text-align: center;
                 font-size: 32px;
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    bottom: 12px;
+                    width: 0;
+                    height: 2px;
+                    background-color: white;
+                    transform: translateX(-50%);
+                    transition: 0.3s;
+                    z-index: 1;
+                }
+                &:hover::after{
+                    width: calc( 100% - 64px);
+                }
             }
         }
     }
@@ -227,7 +257,9 @@
 // page Galerie ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #mainGallery{
-    p{
+    background-color: var.$background-color;
+    >p{
+        display: none;
         text-align: center;
         width: 800px;
         padding-top: 32px;
@@ -237,11 +269,23 @@
     #s-gallery{
         display: flex;
         padding: 32px;
-        gap: 16px;
-        article{
-            width: calc(100% / 3);
+        flex-wrap: wrap;
+        justify-content: start;
+        align-items: flex-start;
+        gap: 8px;
+        a{
+            width: calc( (100vw / 3) - 32px );
             height: 450px;
-            border: solid 1px black;
+            // border: solid 1px black;
+        }
+        article{
+            width: 100%;
+            height: 100%;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
     }
 }
@@ -253,8 +297,7 @@
 #mainEvents{
     #s-events{
         padding: 32px;
-        // background-color: var.$background-color;
-        background-color: #f7f7f7;
+        background-color: var.$background-color;
         >p{
             margin: auto;
             font-size: 18px;
@@ -269,32 +312,106 @@
             align-items: start;
             width: 100%;
             article{
-                border: solid 1px black;
+                border: solid 4px var.$background-color;
+                border-radius: 2px;
+                display: flex;
                 margin-bottom: 32px;
-                .img-article{
-                    width: calc(100vw - 66px);
-                    border: solid 1px red;
-                    height: 500px;
+                padding: 16px;
+                width: calc(100% - 40px);
+                transition: 0.6s;
+                // &:hover{
+                //     border-bottom: solid 4px var.$border;
+                // }
+                img{
+                    min-width: 400px;
+                    width: 400px;
+                    height: 350px;
+                    object-fit: contain;
+
                 }
-                h4{
-                    font-family: CormorantGaramond;
-                    letter-spacing: 1px;
-                    font-size: 22px;
-                    text-align: start;
-                }
-                p{
-                    padding-left: 4px;
-                    font-size: 18px;
-                }
-                a{
-                    display: inline-block;
-                    margin-left: 50%;
-                    transform: translateX(-50%);
-                    border-radius: 4px;
-                    color: black;
-                    border: solid 1px #353535;
-                    padding: 4px 16px;
-                    background-color: #f7f7f7;
+                div{
+                    padding-left: 16px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    div:nth-of-type(1){
+                        h4{
+                            font-size: 26px;
+                            font-family: CormorantGaramond;
+                            margin-bottom: 8px;
+                        }
+                        p{
+                            font-size: 18px;
+                            font-family: Urbanist;
+                            letter-spacing: 1px;
+                            margin-bottom: 8px;
+                        }   
+                    }
+                    div:nth-of-type(2){
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: start;
+                        gap: 8px;
+                        a:nth-of-type(1){
+                            font-size: 16px;
+                            text-transform: capitalize;
+                            font-family: Urbanist;
+                            letter-spacing: 1px;
+                            padding: 8px 24px;
+                            border: 2px solid black;
+                            background-color: white;
+                            border-radius: 32px;
+                            color: black;
+                            transition: 0.2s;
+                            min-width: 98px;
+                            text-align: center;
+                            font-weight: bold;
+                            &:hover{
+                                background-color: black;
+                                color: white;
+                            }
+                        }
+                        a:nth-of-type(2){
+                            font-size: 16px;
+                            text-transform: capitalize;
+                            font-family: Urbanist;
+                            letter-spacing: 1px;
+                            padding: 8px 24px;
+                            border: 2px solid var.$border-bleu;
+                            background-color: white;
+                            border-radius: 32px;
+                            color: var.$color-blue;
+                            transition: 0.2s;
+                            min-width: 98px;
+                            text-align: center;
+                            font-weight: bold;
+                            &:hover{
+                                background-color: var.$border-bleu;
+                                color: white;
+                            }
+                        }
+                        form{
+                            input#delete{
+                                font-size: 16px;
+                                font-weight: bold;
+                                text-transform: capitalize;
+                                font-family: Urbanist;
+                                letter-spacing: 1px;
+                                padding: 8px 24px;
+                                border: 2px solid var.$border-rouge;
+                                background-color: white;
+                                border-radius: 32px;
+                                color: var.$color-rouge;
+                                transition: 0.2s;
+                                min-width: 150px;
+                                cursor: pointer;
+                                &:hover{
+                                    background-color: var.$border-rouge;
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -302,9 +419,9 @@
 }
 
 
-// page Login ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// page Login ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// page Login ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// page Register ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// page Register ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// page Register ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #mainRegister{
     padding: 64px 32px;
@@ -371,13 +488,25 @@
             padding-left: 8px;
             font-family: Urbanist;
             padding-top: 16px;
+                a{
+                color: var.$color-blue;
+                transition: 0.3s;
+                &:hover{
+                    text-decoration: underline solid 1px var.$color-blue;
+                }
+            }
         }
     }
 }
 
+// page Login ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// page Login ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// page Login ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #mainLogin{
     padding: 64px 32px;
     background-color: var.$background-color;
+    min-height: calc( 100vh - 568px);
     form{
         margin: auto;
         width: 426px;
@@ -435,6 +564,13 @@
             padding-left: 8px;
             font-family: Urbanist;
             padding-top: 16px;
+                a{
+                color: var.$color-blue;
+                transition: 0.3s;
+                &:hover{
+                    text-decoration: underline solid 1px var.$color-blue;
+                }
+            }
         }
     }
 }
@@ -444,8 +580,9 @@
 // page EventDetails ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #mainEventDetails{
-    margin: 32px;
-    min-height: 50vh;
+    background-color: var.$background-color;
+    padding: 32px;
+    min-height: calc( 100vh - 504px);
     article{
         margin-top: 48px;
         display: flex;
@@ -483,6 +620,7 @@
 #mainProfil{
     padding: 32px;
     background-color: var.$background-color;
+    min-height: 50vh;
     #s-profil{
         display: flex;
         div:nth-of-type(1){
@@ -513,15 +651,80 @@
         #artworks{
             margin-top: 32px;
             display: flex;
+            flex-wrap: wrap;
             gap: 16px;
             justify-content: center;
             align-items: center;
             article{
-                background-color: white;
                 width: calc((100% / 3) - 76px);
-                border: solid 1px black;
-                height: 300px;
-                max-width: 400px;
+                height: 400px;
+                min-width: 400px;
+                position: relative;
+                >a{
+                    transition: 0.2s;
+                    img{
+                        height: 100%;
+                        width: 100%;
+                        object-fit: contain;
+                    }
+                    // &:hover{
+                    //     filter : blur(6px)
+                    // }
+                }
+                >div{
+                    position: absolute;
+                    bottom: 56px;
+                    left: 0px;
+                    display: flex;
+                    gap: 16px;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    a{
+                        width: 98px;
+                        text-align: center;
+                        border: solid 2px var.$border-bleu;
+                        color: var.$color-blue;
+                        text-transform: capitalize;
+                        padding: 8px 24px;
+                        border-radius: 32px;
+                        background-color: white;
+                        font-size: 16px;
+                        font-family: Urbanist;
+                        font-weight: bold;
+                        letter-spacing: 1px;
+                        transition: 0.2s;
+                        &:hover{
+                            // border: solid 2px rgb(0, 56, 186);
+                            color: white;
+                            background-color: var.$border-bleu;
+                        }
+                    }
+                    input{
+                        width: 150px;
+                        border: solid 2px var.$border-rouge;
+                        text-transform: capitalize;
+                        padding: 8px 24px;
+                        border-radius: 32px;
+                        background-color: white;
+                        color: var.$color-rouge;
+                        font-size: 16px;
+                        font-family: Urbanist;
+                        font-weight: bold;
+                        letter-spacing: 1px;
+                        cursor: pointer;
+                        transition: 0.2s;
+                        &:hover{
+                            background-color: var.$border-rouge;
+                            color: white;
+                        }
+                    }
+                    // .btn{
+                    //     width: 100px;
+                    //     padding: 8px 16px;
+                    //     display: inline-block;
+                    // }
+                }
             }
         }
     }
@@ -595,8 +798,151 @@
 
 
 
+// Page Informations ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Page Informations ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Page Informations ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#mainInformations{
+    padding: 32px;
+    background-color: var.$background-color;
+    h2{
+        font-size: 28px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        padding-top: 64px;
+        letter-spacing: 2px;
+    }
+    details{
+        padding-bottom: 16px;
+        // border: solid 1px black;
+        summary{
+            display: inline-block;
+            // border-bottom: solid 1px var.$border;
+            font-size: 20px;
+            font-family: Urbanist;
+            font-weight: bold;
+            padding: 8px;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+        p{
+            padding: 8px;
+            font-size: 18px;
+            font-family: Urbanist;background: RGB(203, 203, 203);
+            background: linear-gradient(90deg,rgba(203, 203, 203, 1) 25%, rgba(245, 245, 245, 1) 55%);
+            a{
+                color: var.$color-blue;
+                transition: 0.6s;
+                &:hover{
+                    text-decoration: underline solid 1px;
+                transition: 0.6s;
+                }
+            }
+            span{
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+// Page Artwork ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Page Artwork ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Page Artwork ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#mainArtworkDetails{
+    padding: 32px;
+    background-color: var.$background-color;
+    h2{
+        font-size: 28px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        // padding-top: 32px;
+        letter-spacing: 2px;
+    }
+    >p:nth-of-type(1){
+        padding-bottom: 24px;
+    }
+    >p{
+        font-size: 16px;
+        font-family: Urbanist;
+        letter-spacing: 1px;
+    }
+    >div.border{
+        border-bottom: 1px solid var.$border;
+        width: 300px;
+        margin: 32px auto;
+    }
+    #s-artworks{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-top: 16px;
+        gap: 12px;
+        article{
+            width: calc( (100% / 3) - 8px );
+            height: 500px;
+            cursor: pointer;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
 
 
+    .lightbox{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        img{
+            max-width: 90%;
+            max-height: 80%;
+        }
+        .btn-close{
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer
+        }
+    }
+    .lightbox.hidden{
+        display: none;
+    }
+    #btn-prev{
+        position: absolute;
+        top: 50%;
+        left: 50px;
+        transform: translateY(-50%);
+        font-size: 40px;
+        color: white;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        pad: 16px;
+    }
+    #btn-next{
+        position: absolute;
+        top: 50%;
+        right: 50px;
+        transform: translateY(-50%);
+        font-size: 40px;
+        color: white;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        pad: 16px;
+    }
+}
 // Class ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Class ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Class ///////////////////////////////////////////////////////////////////////////////////////////////////////////////

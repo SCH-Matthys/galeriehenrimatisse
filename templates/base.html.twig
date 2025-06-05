@@ -16,23 +16,23 @@
                     {% if is_granted("ROLE_USER") %}
                         <li><a href="{{ path("app_logout") }}">DECONNEXION</a></li>
                     {% else %}
-                        <li><a href="{{ path("app_login") }}">CONNEXION</a></li>
+                        <li><a class="{% if app.request.attributes.get('_route') == 'app_login' %}active{% endif %}" href="{{ path("app_login") }}">CONNEXION</a></li>
                         <li><p>/</p></li>
-                        <li><a href="{{ path("app_register") }}">INSCRIPTION</a></li>
+                        <li><a class="{% if app.request.attributes.get('_route') == 'app_register' %}active{% endif %}" href="{{ path("app_register") }}">INSCRIPTION</a></li>
                     {% endif %}
                 </ul>
             </div>
             <nav>
                 <ul>
-                    <li><a href="{{ path("app_home") }}">ACCUEIL</a></li>
-                    <li><a href="">INFORMATIONS</a></li>
-                    <li><a href="{{ path("app_event") }}">EVENEMENTS</a></li>
-                    <li><a href="{{ path("app_gallery") }}">GALERIE</a></li>
+                    <li><a class="{% if app.request.attributes.get('_route') == 'app_home' %}active{% endif %}" href="{{ path("app_home") }}">ACCUEIL</a></li>
+                    <li><a class="{% if app.request.attributes.get('_route') == 'app_informations' %}active{% endif %}" href="{{ path("app_informations") }}">INFORMATIONS</a></li>
+                    <li><a class="{% if app.request.attributes.get('_route') == 'app_event' %}active{% endif %}" href="{{ path("app_event") }}">EVENEMENTS</a></li>
+                    <li><a class="{% if app.request.attributes.get('_route') == 'app_gallery' %}active{% endif %}" href="{{ path("app_gallery") }}">GALERIE</a></li>
                     {% if is_granted("ROLE_USER") %}
-                        <li><a href="{{ path('app_profil') }}">PROFIL</a></li>
+                        <li><a class="{% if app.request.attributes.get('_route') == 'app_profil' %}active{% endif %}" href="{{ path('app_profil') }}">PROFIL</a></li>
                     {% endif %}
                     {% if is_granted("ROLE_ADMIN") %}
-                        {# <li><a href="">ADMIN</a></li> #}
+                        {# <li><a class="{% if app.request.attributes.get('_route') == 'app_home' %}active{% endif %}" href="">ADMIN</a></li> #}
                     {% endif %}
                 </ul>
             </nav>
@@ -48,5 +48,6 @@
             </a>
         </footer>
     {% endblock %}
+    {% block JavaScript %}{% endblock %}
     </body>
 </html>
