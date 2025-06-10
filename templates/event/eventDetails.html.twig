@@ -14,5 +14,30 @@
             <p>Ajouté le : {{ event.date|date('d/m/Y') }}</p>
         </div>
     </article>
+
+    {% if is_granted("ROLE_USER") %}
+        <div></div>
+        {{ form_start(form) }}
+            {{ form_widget(form)}}
+            <button class="btn">Publier mon commentaire</button>
+        {{ form_end(form) }}
+    {% endif %}
+
+    {% for comment in event.comments %}
+    
+        <p>{{ comment.content }}</p>
+        <p>par : {{ comment.user.firstName }}</p>
+        <p>le : {{ comment.date|date('d/m/Y H:i') }}</p>
+        {% if app.user and app.user.id == comment.user.id %}
+            <div>
+                <a href="{{ path("app_editComment", {'id': event.id, 'commentId': comment.id}) }}">Modifier</a>
+                <form method="POST" onsubmit="return confirm('Voulez vous vraiment supprimer ce commentaire ?')" action="{{ path("app_deleteComment", {'id': event.id, 'commentId': comment.id}) }}">
+                    {# <input type="hidden" name="_method" value="delete"> #}
+                    <input type="hidden" name="_token" value="{{ csrf_token('SUP' ~ comment.id)}}">
+                    <input id="delete" type="submit" value="Supprimer">
+                </form>
+            </div>
+        {% endif %}
+    {% endfor %}
 </main>
 {% endblock %}

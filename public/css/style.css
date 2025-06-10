@@ -355,6 +355,11 @@ header .active {
   text-align: center;
   padding-bottom: 16px;
 }
+#mainEvents #s-events > a {
+  margin: 32px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
 #mainEvents #s-events div {
   display: flex;
   flex-direction: column;
@@ -635,6 +640,29 @@ header .active {
   padding-top: 16px;
   font-size: 16px;
   line-height: 22px;
+}
+#mainEventDetails > div {
+  width: 300px;
+  border-bottom: solid 1px rgb(203, 203, 203);
+  margin: 32px auto;
+}
+#mainEventDetails form {
+  width: 426px;
+  margin: auto;
+}
+#mainEventDetails form label {
+  display: none;
+}
+#mainEventDetails form textarea {
+  font-family: Urbanist;
+  letter-spacing: 1px;
+  width: 400px;
+  border-radius: 16px;
+  border: solid 1px rgb(110, 110, 110);
+  font-size: 14px;
+  padding: 16px 12px;
+  min-height: 50px;
+  margin-bottom: 16px;
 }
 
 #mainProfil {
@@ -932,6 +960,74 @@ header .active {
   border: none;
   cursor: pointer;
   pad: 16px;
+}
+
+#mainContact {
+  padding: 32px;
+  background-color: #f5f5f5;
+  min-height: calc(100vh - 568px);
+}
+#mainContact h2 {
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 24px;
+  padding-bottom: 16px;
+}
+#mainContact form {
+  margin: auto;
+  width: 426px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding-bottom: 16px;
+}
+#mainContact form label {
+  font-size: 18px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  font-family: Urbanist;
+  letter-spacing: 1px;
+}
+#mainContact form input {
+  font-size: 16px;
+  border-radius: 32px;
+  border: solid 1px rgb(110, 110, 110);
+  display: inline-block;
+  width: 400px;
+  padding: 8px 12px;
+  font-family: Urbanist;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+#mainContact form textarea {
+  width: 400px;
+  border-radius: 16px;
+  border: solid 1px rgb(110, 110, 110);
+  font-size: 14px;
+  padding: 16px 12px;
+  min-height: 50px;
+}
+#mainContact form button {
+  margin-top: 16px;
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 32px;
+  border: solid 2px rgb(0, 0, 0);
+  display: inline-block;
+  width: 426px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: Urbanist;
+  transition: 0.2s;
+}
+#mainContact form button:hover {
+  color: white;
+  background-color: black;
 }
 
 .btn {

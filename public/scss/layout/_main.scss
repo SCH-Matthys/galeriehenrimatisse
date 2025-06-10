@@ -305,6 +305,11 @@
             text-align: center;
             padding-bottom: 16px;
         }
+        >a{
+            margin: 32px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
         div{
             display: flex;
             flex-direction: column;
@@ -610,6 +615,29 @@
             }
         }
     }
+    >div{
+        width: 300px;
+        border-bottom: solid 1px var.$border;
+        margin: 32px auto;
+    }
+    form{
+        width: 426px;
+        margin: auto;
+        label{
+            display: none;
+        }
+        textarea{
+            font-family: Urbanist;
+            letter-spacing: 1px;
+            width: calc( 426px - 26px);
+            border-radius: 16px;
+            border: solid 1px rgb(110, 110, 110);
+            font-size: 14px;
+            padding: 16px 12px;
+            min-height: 50px;
+            margin-bottom: 16px
+        };
+    }
 }
 
 
@@ -733,6 +761,7 @@
 // page addArtwork ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // page addArtwork ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // page addArtwork ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #mainAddArtwork, #mainEditArtwork{
     padding: 32px;
     form{
@@ -943,6 +972,79 @@
         pad: 16px;
     }
 }
+
+// Page Contact ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Page Contact ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Page Contact ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#mainContact{
+    padding: 32px;
+    background-color: var.$background-color;
+    min-height: calc( 100vh - 568px);
+    h2{
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 24px;
+        padding-bottom: 16px;
+    }
+    form{
+        margin: auto;
+        width: 426px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        padding-bottom: 16px;
+        label{
+            font-size: 18px;
+            padding-bottom: 4px;
+            padding-left: 4px;
+            font-family: Urbanist;
+            letter-spacing: 1px;
+        }
+        input{
+            font-size: 16px;
+            border-radius: 32px;
+            border: solid 1px rgb(110, 110, 110);
+            display: inline-block;
+            width: 400px;
+            padding: 8px 12px;
+            font-family: Urbanist;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        textarea{
+            width: calc( 426px - 26px);
+            border-radius: 16px;
+            border: solid 1px rgb(110, 110, 110);
+            font-size: 14px;
+            padding: 16px 12px;
+            min-height: 50px;
+        }
+        button{
+            margin-top: 16px;  
+            background-color: white;
+            color: black;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 32px;
+            border: solid 2px rgb(0, 0, 0);
+            display: inline-block;
+            width: 426px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-family: Urbanist;
+            transition: 0.2s;
+            &:hover{
+                color: white;
+                background-color: black;
+            }
+        }
+    }
+}
+
 // Class ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Class ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Class ///////////////////////////////////////////////////////////////////////////////////////////////////////////////

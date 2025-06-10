@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block main %}
+    <main id="mainContact">
+        {{ form_start(form) }}
+            <h2>Formulaire de contact</h2>
+            {{ form_row(form.firstName) }}
+            {{ form_row(form.lastName) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.phone) }}
+            {{ form_row(form.message) }}
+            {{ form_row(form.submit) }}
+        {{ form_end(form) }}
+    </main>
+{% endblock %}

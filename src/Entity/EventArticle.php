@@ -49,7 +49,7 @@ class EventArticle
     /**
      * @var Collection<int, Comment>
      */
-    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'event')]
+    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'event', orphanRemoval: true)]
     private Collection $comments;
 
     public function __construct()
