@@ -652,6 +652,7 @@
     #s-profil{
         display: flex;
         div:nth-of-type(1){
+            display: none;
             background-color: white;
             width: 200px;
             height: 250px;

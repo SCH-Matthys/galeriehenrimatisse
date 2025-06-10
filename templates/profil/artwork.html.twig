@@ -17,7 +17,7 @@
         {% if artwork.gallery.user.alias == null %}
             <p>from {{ artwork.gallery.user.firstName }}</p>
         {% else %}
-            <p>Oeuvre de : {{ artwork.gallery.user.alias }}</p>
+            <p>Oeuvre de : <a href="{{ path("app_profil", {'id': artwork.gallery.user.id }) }}">{{ artwork.gallery.user.alias }}</a></p>
         {% endif %}
         <div class="border"></div>
         {# <pre>
