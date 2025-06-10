@@ -99,7 +99,7 @@ final class EventController extends AbstractController
         ]);
     }
 
-    #[Route('/event/{id}/comment/{commentId}', name: 'app_editComment')]
+    #[Route('/event/{event}/comment/edit/{comment}', name: 'app_editComment')]
     public function editComment(Request $request, EntityManagerInterface $entityManager, Security $security, EventArticle $event, Comment $comment): Response
     {
         $user = $security->getUser();
@@ -121,8 +121,8 @@ final class EventController extends AbstractController
         return $this->redirectToRoute('details_event', ['id' => $event->getId()]);
     }
 
-    #[Route('/event/{id}/comment/{commentId}/delete', name: 'app_deleteComment')]
-    public function deleteComment(Request $request, EntityManagerInterface $entityManager, Comment $comment, EventArticle $event): Response
+    #[Route('/event/{event}/comment/delete/{comment}', name: 'app_deleteComment')]
+    public function deleteComment(Request $request, EntityManagerInterface $entityManager, EventArticle $event, Comment $comment): Response
     {
         if($this->isCsrfTokenValid("SUP".$comment->getId(),$request->get("_token"))){
             $entityManager->remove($comment);

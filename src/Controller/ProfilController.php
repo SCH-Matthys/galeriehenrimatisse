@@ -21,11 +21,10 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 final class ProfilController extends AbstractController
 {
-    #[IsGranted("ROLE_USER")]
-    #[Route('/profil', name: 'app_profil')]
-    public function index(Security $security, ArtworkImageRepository $artworkImageRepository): Response
+    #[Route('/profil/{id}', name: 'app_profil')]
+    public function index(Security $security, User $user, ArtworkImageRepository $artworkImageRepository): Response
     {
-        $user = $security->getUser();
+        // $user = $security->getUser();
         $images = $artworkImageRepository->findAll();
         // $artworks = $artworkRepository->findAll();
 

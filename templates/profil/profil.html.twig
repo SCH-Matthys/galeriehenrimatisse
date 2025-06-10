@@ -14,19 +14,13 @@
         </section>
         <div></div>
         <section id="s-gallery">
-            {% if user.gallery == null %}
+            {% if user.gallery == null and app.user.id == user.id %}
                 <a href="{{ path("app_createGallery") }}" class="btn">Créez votre galerie</a>
-            {% else %}
+            {% elseif app.user.id == user.id %}
                 <a href="{{ path("add_artwork") }}" class="btn">Ajouter une oeuvre à votre galerie</a>
                 <div id="artworks">
+            {% endif %}
                 {% for artwork in gallery.artworks %}
-                    {# <article>
-                        {% for image in artwork.artworkImages %}
-                            <a href="">
-                                <img src="{{ asset('uploads/artworkImages/' ~ image.imageName) }}" alt="{{ artwork.name }}">
-                            </a>
-                        {% endfor %} #}
-
                     <article>
                         {% set firstImage = artwork.artworkImages|first %}
                         {% if firstImage %}
@@ -38,7 +32,7 @@
                         {% endif %}
 
 
-                        {% if is_granted("ROLE_ADMIN") or user.id == artwork.gallery.user.id %}
+                        {% if is_granted("ROLE_ADMIN") or app.user.id == artwork.gallery.user.id %}
                         <div>
                             <a href="{{ path("edit_oeuvre", {"id": artwork.id}) }}">Modifier</a>
                             <form method="POST" onsubmit="return confirm('Vous êtes sur de vouloir supprimer cette oeuvr ede votre galerie ? Cliquez sur [ OK ] pour valider la suppression.')"
@@ -52,8 +46,7 @@
                     </article>
                 {% endfor %}
             </div>
-            {% endif %}
-            
+            {# {% endif %} #}
         </section>
     </main>
 {% endblock %}

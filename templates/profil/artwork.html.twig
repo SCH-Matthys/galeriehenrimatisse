@@ -11,19 +11,14 @@
             <button id="btn-prev">&#10094;</button>
             <button id="btn-next">&#10095;</button>
         </div>
-
         <h2>{{ artwork.name }}</h2>
         <p>{{ artwork.description }}</p>
         {% if artwork.gallery.user.alias == null %}
-            <p>from {{ artwork.gallery.user.firstName }}</p>
+            <p>Oeuvre de : <a href="{{ path("app_profil", {'id': artwork.gallery.user.id }) }}">{{ artwork.gallery.user.firstName }} </a> </p>
         {% else %}
             <p>Oeuvre de : <a href="{{ path("app_profil", {'id': artwork.gallery.user.id }) }}">{{ artwork.gallery.user.alias }}</a></p>
         {% endif %}
         <div class="border"></div>
-        {# <pre>
-            {{ dump(artwork) }}
-            {{ dump(artwork.artworkImages) }}
-        </pre> #}
         <section id="s-artworks">
             {% for image in artwork.artworkImages %}
                 <article>
