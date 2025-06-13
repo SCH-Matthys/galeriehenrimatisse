@@ -24,6 +24,18 @@
                 <article>
                     <img data-src="{{ asset('uploads/artworkImages/' ~ image.imageName) }}" src="{{ asset('uploads/artworkImages/' ~ image.imageName) }}" class="artwork-image" alt="Photo ou Image représentant : {{ artwork.name }}">
                 </article>
+
+                <a href="
+                {{ path("app_artworkDetailsEditImage", {"id": artwork.id, "imageName":image.id  }) }}
+                ">modifier l'image</a>
+                
+                <form method="POST" onsubmit="return confirm('Vous êtes sur de vouloir supprimer cette oeuvr ede votre galerie ? Cliquez sur [ OK ] pour valider la suppression.')"
+                    action="{{ path('app_artworkDetailsDeleteImage', {"id": artwork.id, "imageName":image.id  }) }}"
+                    >
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="hidden" name="_token" value="{{ csrf_token('SUP' ~ image.id) }}">
+                    <input type="submit" id="delete" value="supprimer l'image">
+                </form>
             {% endfor %}
         </section>
     </main>

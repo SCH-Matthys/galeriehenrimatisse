@@ -7,6 +7,8 @@ use App\Entity\ArtworkImage;
 use App\Entity\Gallery;
 use App\Entity\User;
 use App\Form\ArtworkForm;
+use App\Form\ArtworkImageForm;
+use App\Form\ArtworkNoImgForm;
 use App\Form\GalleryForm;
 use App\Repository\ArtworkImageRepository;
 use App\Repository\ArtworkRepository;
@@ -21,6 +23,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 final class ProfilController extends AbstractController
 {
+    #[Route('/profil', name: 'app_profill')]
     #[Route('/profil/{id}', name: 'app_profil')]
     public function index(Security $security, User $user, ArtworkImageRepository $artworkImageRepository): Response
     {
@@ -36,6 +39,7 @@ final class ProfilController extends AbstractController
         ]);
     }
  
+    #[IsGranted("ROLE_USER")]
     #[Route('/profil/createGallery', name: 'app_createGallery')]
     public function createGallery(Request $request, Security $security, EntityManagerInterface $entityManagerInterface): Response
     {
@@ -61,10 +65,10 @@ final class ProfilController extends AbstractController
     }
 
     #[IsGranted("ROLE_USER")]
-    #[Route("/profil/add", name: "add_artwork")]
-    public function addArtwork(Request $request, EntityManagerInterface $entityManagerInterface, Security $security): Response
+    #[Route("/profil/{id}/add", name: "add_artwork")]
+    public function addArtwork(Request $request, EntityManagerInterface $entityManagerInterface, Security $security, User $user): Response
     {
-        $user = $security->getUser();
+        // $user = $security->getUser();
         $gallery = $user->getGallery();
 
         if(!$gallery){
@@ -98,7 +102,7 @@ final class ProfilController extends AbstractController
                 $entityManagerInterface->flush();
                 $this->addFlash("success", "Votre oeuvre à bien été ajouté à votre galerie.");
                 // dd($files);
-                return $this->redirectToRoute("app_profil");
+                return $this->redirectToRoute("app_profil", ["id" => $user->getId()]);
             }
             return $this->render("profil/addArtwork.html.twig", [
                 "form" => $form->createView(),
@@ -106,33 +110,34 @@ final class ProfilController extends AbstractController
         // }
     }
 
-    #[Route("/profil/edit/{id}", name: "edit_oeuvre")]
-    public function editArtwork(Artwork $artwork, Request $request, EntityManagerInterface $entityManagerInterface): Response
+    #[Route("/profil/{id}/edit/{artwork}", name: "edit_oeuvre")]
+    public function editArtwork(Request $request, EntityManagerInterface $entityManagerInterface, User $user, Artwork $artwork): Response
     {
-        $form = $this->createForm(ArtworkForm::class, $artwork);
+        $form = $this->createForm(ArtworkNoImgForm::class, $artwork);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $entityManagerInterface->persist($artwork);
             $entityManagerInterface->flush();
             $this->addFlash("success", "L'oeuvre à été modifié avec succes.");
-            return $this->redirectToRoute("app_profil");
+            return $this->redirectToRoute("app_profil", ["id" => $user->getId()]);
         }
         return $this->render("profil/editArtwork.html.twig", [
             "form" => $form->createView(),
         ]);
     }
 
-    #[Route("/profil/delete/{id}", name: "delete_artwork")]
-    public function deleteEvent(Artwork $artwork, Request $request, EntityManagerInterface $entityManagerInterface): Response
+    #[Route("/profil/{id}/delete/{artwork}", name: "delete_artwork")]
+    public function deleteEvent(Request $request, EntityManagerInterface $entityManagerInterface, User $user, Artwork $artwork): Response
     {
         if($this->isCsrfTokenValid("SUP".$artwork->getId(),$request->get("_token"))){
             $entityManagerInterface->remove($artwork);
             $entityManagerInterface->flush();
             $this->addFlash("success", "L'oeuvre à bien été supprimé.");
-            return $this->redirectToRoute("app_profil");
+            return $this->redirectToRoute("app_profil", ["id" => $user->getId()]);
         }
-        return $this->redirectToRoute("app_profil");
+        return $this->redirectToRoute("app_profil", ["id" => $user->getId()]);
     }
+
 
     
     #[Route("/artwork/{id}", name: "app_artworkDetails")]
@@ -141,5 +146,35 @@ final class ProfilController extends AbstractController
         return $this->render("profil/artwork.html.twig", [
             "artwork" => $artwork,
         ]);
+    }
+
+    #[Route("/artwork/{id}/editImage/{imageName}", name: "app_artworkDetailsEditImage")]
+    public function artworkDetailsEditImage(Artwork $artwork, ArtworkImage $imageName, Request $request, EntityManagerInterface $entityManagerInterface): Response
+    {
+        $form = $this->createForm(ArtworkImageForm::class, $imageName);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $entityManagerInterface->persist($imageName);
+            $entityManagerInterface->flush();
+            $this->addFlash("success", "L'oeuvre à été modifié avec succes.");
+            return $this->redirectToRoute("app_artworkDetails", ["id" => $artwork->getId()]);
+        }
+        return $this->render("profil/editArtwork.html.twig", [
+            "form" => $form->createView(),
+            "artwork" => $artwork,
+            "image" => $imageName
+        ]);
+    }
+
+    #[Route("/artwork/{id}/deleteImage/{imageName}", name: "app_artworkDetailsDeleteImage")]
+    public function artworkDetailsDeleteImage(Artwork $artwork, ArtworkImage $imageName, Request $request, EntityManagerInterface $entityManagerInterface): Response
+    {
+        if ($this->isCsrfTokenValid('SUP' . $imageName->getId(), $request->get('_token'))) {
+            $entityManagerInterface->remove($imageName);
+            $entityManagerInterface->flush();
+            $this->addFlash("success", "L'oeuvre à bien été supprimé.");
+            return $this->redirectToRoute("app_artworkDetails", ["id" => $artwork->getId()]);
+        }
+        return $this->redirectToRoute("app_artworkDetails", ["id" => $artwork->getId()]);
     }
 }

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Politique de confidentialité{% endblock %}
+
+{% block main %}
+    <main id="mainConfidencialPolicy">
+        <h2>Politique de confidentialité</h2>
+
+        <p>Le site "Galerie Henri Matisse" respecte la vie privée de ses utilisateurs et s'engage à protéger les données personnelles qui peuvent être collectées.</p>
+
+        <h3>Collecte des données</h3>
+        <p>Les seules données collectées le sont via :</p>
+        <ul>
+            <li>
+                <p>Le formulaire d'inscription (nom, email, mot de passe).</p>
+            </li>
+            <li>
+                <p>Les commentaires liés aux événements.</p>
+            </li>
+        </ul>
+
+        <h3>Finalité du traitement</h3>
+        <p>Les données sont utilisées uniquement dans le cadre du fonctionnement du site (inscription, affichage des œuvres, commentaires). Elles ne sont jamais cédées à des tiers.</p>
+
+        <h3>Cookies</h3>
+        <p>Le site peut utiliser des cookies strictement nécessaires au bon fonctionnement. Aucun suivi publicitaire n'est effectué.</p>
+
+        <h3>Conservation des données</h3>
+        <p>Les données sont conservées aussi longtemps que l'utilisateur est inscrit sur le site, ou jusqu'à sa demande de suppression.</p>
+
+        <h2>Droits des utilisateurs</h2>
+        <p>Conformément au RGPD, vous pouvez demander l'accès, la modification ou la suppression de vos données personnelles en écrivant à : <span>contact.galerie.henri.matisse@gmail.com</span> ou via notre formulaire de <a href="{{ path("app_contact") }}">Contact</a>.</p>
+
+        <h3>Responsable du traitement</h3>
+        <p>Le responsable du traitement est Matthys S., développeur du site dans le cadre d'un projet de formation.</p>
+    </main>
+{% endblock %}

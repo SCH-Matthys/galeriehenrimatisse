@@ -24,7 +24,6 @@
     {% endif %}
 
     {% for comment in event.comments %}
-    
         <p>{{ comment.content }}</p>
         <p>par : {{ comment.user.firstName }}</p>
         <p>le : {{ comment.date|date('d/m/Y H:i') }}</p>

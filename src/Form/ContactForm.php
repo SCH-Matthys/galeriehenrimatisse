@@ -17,23 +17,23 @@ class ContactForm extends AbstractType
     {
         $builder
             ->add("firstName", TextType::class, [
-                "label" => false,
+                "label" => "Saisisez votre prénom",
                 "attr"=>["placeholder" => "Votre prénom"]  
             ])
             ->add("lastName", TextType::class, [
-                "label" => false,
+                "label" => "Saisiez votre nom",
                 "attr"=>["placeholder" => "Votre nom"]  
             ])
             ->add("email", EmailType::class, [
-                "label" => false,
+                "label" => "Entrez votre adresse mail",
                 "attr"=>["placeholder" => "Votre adresse mail"]  
             ])
             ->add("phone", NumberType::class, [
-                "label" => false,
+                "label" => "Entrez votre numero de téléphone",
                 "attr"=>["placeholder" => "Votre numero de téléphone"]  
             ])
             ->add("message", TextareaType::class, [
-                "label" => false,
+                "label" => "Entrez votre message",
                 "attr"=>["placeholder" => "Entrez votre message"]  
             ])
             ->add("submit", SubmitType::class, [

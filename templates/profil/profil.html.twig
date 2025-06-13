@@ -17,7 +17,7 @@
             {% if user.gallery == null and app.user.id == user.id %}
                 <a href="{{ path("app_createGallery") }}" class="btn">Créez votre galerie</a>
             {% elseif app.user.id == user.id %}
-                <a href="{{ path("add_artwork") }}" class="btn">Ajouter une oeuvre à votre galerie</a>
+                <a href="{{ path("add_artwork", {"id":user.id}) }}" class="btn">Ajouter une oeuvre à votre galerie</a>
                 <div id="artworks">
             {% endif %}
                 {% for artwork in gallery.artworks %}
@@ -31,12 +31,15 @@
                             <p>(Aucune image)</p>
                         {% endif %}
 
+                        {# <pre>
+                            {{ dump(artwork) }}
+                        </pre> #}
 
                         {% if is_granted("ROLE_ADMIN") or app.user.id == artwork.gallery.user.id %}
                         <div>
-                            <a href="{{ path("edit_oeuvre", {"id": artwork.id}) }}">Modifier</a>
+                            <a href="{{ path("edit_oeuvre", {"id": app.user.id, "artwork": artwork.id}) }}">Modifier</a>
                             <form method="POST" onsubmit="return confirm('Vous êtes sur de vouloir supprimer cette oeuvr ede votre galerie ? Cliquez sur [ OK ] pour valider la suppression.')"
-                                action="{{ path('delete_artwork', {'id': artwork.id}) }}">
+                                action="{{ path('delete_artwork', {"id": app.user.id, 'artwork': artwork.id}) }}">
                                 <input type="hidden" name="_method" value="delete">
                                 <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ artwork.id)}}">
                                 <input type="submit" id="delete" value="supprimer">

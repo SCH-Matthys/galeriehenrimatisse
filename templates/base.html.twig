@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
     {% block header %}
@@ -28,8 +29,11 @@
                     <li><a class="{% if app.request.attributes.get('_route') == 'app_informations' %}active{% endif %}" href="{{ path("app_informations") }}">INFORMATIONS</a></li>
                     <li><a class="{% if app.request.attributes.get('_route') == 'app_event' %}active{% endif %}" href="{{ path("app_event") }}">ÉVÉNEMENTS</a></li>
                     <li><a class="{% if app.request.attributes.get('_route') == 'app_gallery' %}active{% endif %}" href="{{ path("app_gallery") }}">GALERIE</a></li>
+                    <li><a class="{% if app.request.attributes.get('_route') == 'app_login' %}active{% endif %}" href="{{ path("app_login") }}">CONNEXION</a></li>
+                    <li><a class="{% if app.request.attributes.get('_route') == 'app_register' %}active{% endif %}" href="{{ path("app_register") }}">INSCRIPTION</a></li>
                     {% if is_granted("ROLE_USER") %}
                         <li><a class="{% if app.request.attributes.get('_route') == 'app_profil' %}active{% endif %}" href="{{ path('app_profil', {"id": app.user.id }) }}">PROFIL</a></li>
+                        <li><a href="{{ path("app_logout") }}">DECONNEXION</a></li>
                     {% endif %}
                     {% if is_granted("ROLE_ADMIN") %}
                         {# <li><a class="{% if app.request.attributes.get('_route') == 'app_home' %}active{% endif %}" href="">ADMIN</a></li> #}
@@ -54,6 +58,19 @@
             <a href="{{ path("app_home") }}">
                 <h3>Galerie <span></span> Henri <span></span> Matisse</h3>
             </a>
+            <ul>
+                <li>
+                    <a href="{{ path("app_mentionslegales") }}">Mentions légales</a>
+                </li>
+                <li>
+                    <a href="{{ path("app_politiquedeconfidentialite") }}">Politique de confidentialité</a>
+                </li>
+                <li>
+                    <a href="{{ path("app_contact") }}">Nous contacter</a>
+                </li>
+            </ul>
+            <p>© 2025 Galerie Henri Matisse - Tous droits réservés.</p>
+            <p>Site réalisé par Matthys S. dans le cadre d'un projet de formation DWWM.</p>
         </footer>
     {% endblock %}
     {% block JavaScript %}{% endblock %}

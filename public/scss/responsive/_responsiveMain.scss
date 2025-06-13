@@ -1,0 +1,284 @@
+@use "./../abstract/variable" as var;
+@use "./../base/typo";
+
+// main Home //////////////////////////////////////////////////////////////////////////////////////////
+// main Home //////////////////////////////////////////////////////////////////////////////////////////
+// main Home //////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width:(1450px)){
+    #mainHome{
+        #s-events{
+            .grid {
+                display: grid;
+                grid-template-columns: (2, 1fr);
+                grid-template-rows: 2fr 1fr 2fr 1fr 2fr 1fr;
+                grid-column-gap: 16px;
+                grid-row-gap: 16px;
+                }
+
+                >a{
+.div1 { grid-area: 1 / 1 / 2 / 2; }
+.div2 { grid-area: 2 / 1 / 3 / 2; }
+.div3 { grid-area: 1 / 2 / 2 / 3; }
+.div4 { grid-area: 2 / 2 / 3 / 3; }
+.div5 { grid-area: 3 / 1 / 4 / 2; }
+.div6 { grid-area: 4 / 1 / 5 / 2; }
+.div7 { grid-area: 3 / 2 / 4 / 3; }
+.div8 { grid-area: 4 / 2 / 5 / 3; }
+.div9 { grid-area: 5 / 1 / 6 / 2; }
+.div10 { grid-area: 6 / 1 / 7 / 2; }
+                }
+        }
+    }
+}
+
+// main Informations //////////////////////////////////////////////////////////////////////////////////////////
+// main Informations //////////////////////////////////////////////////////////////////////////////////////////
+// main Informations //////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width:(1100px)){
+    #mainInformations{
+        min-height: calc( 100vh - 600px);
+        details{
+            p{
+                background: linear-gradient(90deg,rgba(203, 203, 203, 1) 25%, rgba(245, 245, 245, 1) 75%);
+            }
+        }
+    }
+}
+
+@media screen and (max-width:(550px)){
+    #mainInformations{
+        details{
+            p{
+                background: linear-gradient(90deg,rgba(203, 203, 203, 1) 25%, rgba(245, 245, 245, 1) 75%);
+            }
+        }
+    }
+}
+
+// main EventDetails //////////////////////////////////////////////////////////////////////////////////////////
+// main EventDetails //////////////////////////////////////////////////////////////////////////////////////////
+// main EventDetails //////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width:(1100px)){
+    #mainEventDetails{
+        article{
+            margin-top: 16px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            div:nth-of-type(1){
+                margin-bottom: 16px;
+            }
+        }
+    }
+}
+
+
+// main Event //////////////////////////////////////////////////////////////////////////////////////////
+// main Event //////////////////////////////////////////////////////////////////////////////////////////
+// main Event //////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width:(900px)){
+    #mainEvents{
+        #s-events{
+            >div{
+                article{
+                    img{
+                        width: 300px;
+                        height: 250px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:(800px)){
+    #mainEvents{
+        #s-events{
+            >div{
+                article{
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        margin-bottom: 16px;
+                    }
+                    div{
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        div:nth-of-type(1){
+                            h4{
+                                text-align: center;
+                            }
+                            p{
+                                text-align: center;
+                            }
+                        }
+                        div:nth-of-type(2){
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:(550px)){
+    #mainEvents{
+        #s-events{
+            >p{
+                width: 100%;
+            }
+            >div{
+               
+                article{
+                    
+                    img{
+                       
+                    }
+                }
+            }
+        }
+    }
+}
+
+// main Gallery //////////////////////////////////////////////////////////////////////////////////////////
+// main Gallery //////////////////////////////////////////////////////////////////////////////////////////
+// main Gallery //////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width:(1500px)){
+    #mainGallery{
+        #s-gallery{
+            a{
+                height: 350px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:(900px)){
+    #mainGallery{
+        #s-gallery{
+            a{
+                height: 250px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:(750px)){
+    #mainGallery{
+        #s-gallery{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            a{
+                width: 100%;
+                height: 600px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:(550px)){
+    #mainGallery{
+        #s-gallery{
+            padding: 16px 0px;
+            a{
+                width: 100%;
+                height: 500px;
+            }
+        }
+    }
+}
+
+// main Register //////////////////////////////////////////////////////////////////////////////////////////
+// main Register //////////////////////////////////////////////////////////////////////////////////////////
+// main Register //////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width:(550px)){
+    #mainRegister{
+        form{
+            width: 300px;
+            h1{
+                text-align: center;
+            }
+            div{
+                input{
+                    width: 274px;
+                }
+            }
+            button{
+                width: 300px;
+            }
+            p{
+                text-align: center;
+            }
+        }
+    }
+}
+
+// main Login //////////////////////////////////////////////////////////////////////////////////////////
+// main Login //////////////////////////////////////////////////////////////////////////////////////////
+// main Login //////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width:(550px)){
+    #mainLogin{
+        form{
+            h1{
+                text-align: center;
+            }
+            width: 300px;
+            input{
+                width: 274px;
+            }
+            button{
+                width: 300px;
+            }
+            p{
+                text-align: center;
+            }
+        }
+    }
+}
+
+// main ConfidencialPolicity //////////////////////////////////////////////////////////////////////////////////////////
+// main ConfidencialPolicity //////////////////////////////////////////////////////////////////////////////////////////
+// main ConfidencialPolicity //////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width:(800px)){
+    #mainConfidencialPolicy{
+        text-align: center;
+        h2,h3{
+            text-align: center;
+        }
+        p{
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+// main legalNotice //////////////////////////////////////////////////////////////////////////////////////////
+// main legalNotice //////////////////////////////////////////////////////////////////////////////////////////
+// main legalNotice //////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width:(800px)){
+    #mainLegalnotices{
+        text-align: center;
+        h2,h3{
+            text-align: center;
+        }
+        p{
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

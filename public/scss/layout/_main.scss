@@ -844,10 +844,8 @@
     }
     details{
         padding-bottom: 16px;
-        // border: solid 1px black;
         summary{
             display: inline-block;
-            // border-bottom: solid 1px var.$border;
             font-size: 20px;
             font-family: Urbanist;
             font-weight: bold;
@@ -1014,8 +1012,12 @@
             font-family: Urbanist;
             letter-spacing: 1px;
             margin-bottom: 8px;
+            margin-top: 4px;
         }
         textarea{
+            margin-top: 4px;
+            font-family: Urbanist;
+            letter-spacing: 1px;
             width: calc( 426px - 26px);
             border-radius: 16px;
             border: solid 1px rgb(110, 110, 110);
@@ -1046,9 +1048,87 @@
     }
 }
 
+// Page Politique de confidentialité ///////////////////////////////////////////////////////////////////////////////////
+// Page Politique de confidentialité ///////////////////////////////////////////////////////////////////////////////////
+// Page Politique de confidentialité ///////////////////////////////////////////////////////////////////////////////////
+
+#mainConfidencialPolicy{
+    padding: 0px 32px 32px;
+    background-color: var.$background-color;
+    min-height: calc( 100vh - 568px);
+    h2{
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 24px;
+        padding-top: 32px;
+        padding-bottom: 16px;
+    }
+    h3{
+        font-size: 26px;
+        font-family: CormorantGaramond;
+        margin-top: 16px;
+    }
+    p{
+        width: 80%;
+        span{
+            font-weight: bold;
+        }
+        a{
+            color: var.$color-blue;
+            cursor: pointer;
+            transition: 0.2s;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+// Page Mentions legales ///////////////////////////////////////////////////////////////////////////////////
+// Page Mentions legales ///////////////////////////////////////////////////////////////////////////////////
+// Page Mentions legales ///////////////////////////////////////////////////////////////////////////////////
+
+#mainLegalnotices{
+    padding: 0px 32px 32px;
+    background-color: var.$background-color;
+    min-height: calc( 100vh - 568px);
+    h2{
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 24px;
+        padding-top: 32px;
+        padding-bottom: 8px;
+    }
+    h3{
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 24px;
+        padding-top: 32px;
+        padding-bottom: 8px;
+    }
+    p{
+        width: 80%;
+        span{
+            font-weight: bold;
+        }
+        a{
+            color: var.$color-blue;
+            cursor: pointer;
+            transition: 0.2s;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
 // Class ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Class ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Class ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 .btn{
     background-color: white;
     text-align: center;

@@ -30,11 +30,11 @@ header div {
   align-items: center;
   justify-content: center;
   padding: 16px;
+  position: relative;
 }
 header div > a {
   display: inline-block;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  margin: auto;
 }
 header div > a h1 {
   font-size: 32px;
@@ -47,6 +47,9 @@ header div > a h1 span {
   width: 8px;
 }
 header div ul {
+  position: absolute;
+  right: 16px;
+  top: 24px;
   margin-left: auto;
   display: flex;
 }
@@ -109,6 +112,9 @@ header nav ul li a::after {
 }
 header nav ul li a:hover::after {
   width: 80%;
+}
+header nav ul li:nth-of-type(5), header nav ul li:nth-of-type(6), header nav ul li:nth-of-type(8) {
+  display: none;
 }
 header .active {
   font-weight: bold;
@@ -1001,8 +1007,12 @@ header .active {
   font-family: Urbanist;
   letter-spacing: 1px;
   margin-bottom: 8px;
+  margin-top: 4px;
 }
 #mainContact form textarea {
+  margin-top: 4px;
+  font-family: Urbanist;
+  letter-spacing: 1px;
   width: 400px;
   border-radius: 16px;
   border: solid 1px rgb(110, 110, 110);
@@ -1031,6 +1041,75 @@ header .active {
   background-color: black;
 }
 
+#mainConfidencialPolicy {
+  padding: 0px 32px 32px;
+  background-color: #f5f5f5;
+  min-height: calc(100vh - 568px);
+}
+#mainConfidencialPolicy h2 {
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 24px;
+  padding-top: 32px;
+  padding-bottom: 16px;
+}
+#mainConfidencialPolicy h3 {
+  font-size: 26px;
+  font-family: CormorantGaramond;
+  margin-top: 16px;
+}
+#mainConfidencialPolicy p {
+  width: 80%;
+}
+#mainConfidencialPolicy p span {
+  font-weight: bold;
+}
+#mainConfidencialPolicy p a {
+  color: rgb(0, 56, 186);
+  cursor: pointer;
+  transition: 0.2s;
+}
+#mainConfidencialPolicy p a:hover {
+  text-decoration: underline;
+}
+
+#mainLegalnotices {
+  padding: 0px 32px 32px;
+  background-color: #f5f5f5;
+  min-height: calc(100vh - 568px);
+}
+#mainLegalnotices h2 {
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 24px;
+  padding-top: 32px;
+  padding-bottom: 8px;
+}
+#mainLegalnotices h3 {
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 24px;
+  padding-top: 32px;
+  padding-bottom: 8px;
+}
+#mainLegalnotices p {
+  width: 80%;
+}
+#mainLegalnotices p span {
+  font-weight: bold;
+}
+#mainLegalnotices p a {
+  color: rgb(0, 56, 186);
+  cursor: pointer;
+  transition: 0.2s;
+}
+#mainLegalnotices p a:hover {
+  text-decoration: underline;
+}
+
 .btn {
   background-color: white;
   text-align: center;
@@ -1056,6 +1135,10 @@ footer {
   height: 250px;
   background-color: black;
   padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 footer h3 {
   font-size: 24px;
@@ -1067,6 +1150,254 @@ footer h3 {
 footer h3 span {
   display: inline-block;
   width: 8px;
+}
+footer ul {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+footer ul li {
+  text-align: center;
+  padding-bottom: 8px;
+}
+footer ul li a {
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+footer ul li a:hover {
+  text-decoration: underline;
+}
+footer p {
+  color: white;
+}
+
+@media screen and (max-width: 1100px) {
+  header div ul {
+    top: 16px;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  header div ul li:nth-of-type(2) {
+    display: none;
+  }
+}
+@media screen and (max-width: 1100px) {
+  header div ul {
+    display: none;
+  }
+  header nav ul {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  header nav ul li:nth-of-type(5), header nav ul li:nth-of-type(6) {
+    display: block;
+  }
+}
+@media screen and (max-width: 550px) {
+  header div h1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 1450px) {
+  #mainHome #s-events .grid {
+    display: grid;
+    grid-template-columns: 2, 1fr;
+    grid-template-rows: 2fr 1fr 2fr 1fr 2fr 1fr;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+  }
+  #mainHome #s-events > a .div1 {
+    grid-area: 1/1/2/2;
+  }
+  #mainHome #s-events > a .div2 {
+    grid-area: 2/1/3/2;
+  }
+  #mainHome #s-events > a .div3 {
+    grid-area: 1/2/2/3;
+  }
+  #mainHome #s-events > a .div4 {
+    grid-area: 2/2/3/3;
+  }
+  #mainHome #s-events > a .div5 {
+    grid-area: 3/1/4/2;
+  }
+  #mainHome #s-events > a .div6 {
+    grid-area: 4/1/5/2;
+  }
+  #mainHome #s-events > a .div7 {
+    grid-area: 3/2/4/3;
+  }
+  #mainHome #s-events > a .div8 {
+    grid-area: 4/2/5/3;
+  }
+  #mainHome #s-events > a .div9 {
+    grid-area: 5/1/6/2;
+  }
+  #mainHome #s-events > a .div10 {
+    grid-area: 6/1/7/2;
+  }
+}
+@media screen and (max-width: 1100px) {
+  #mainInformations {
+    min-height: calc(100vh - 600px);
+  }
+  #mainInformations details p {
+    background: linear-gradient(90deg, rgb(203, 203, 203) 25%, rgb(245, 245, 245) 75%);
+  }
+}
+@media screen and (max-width: 550px) {
+  #mainInformations details p {
+    background: linear-gradient(90deg, rgb(203, 203, 203) 25%, rgb(245, 245, 245) 75%);
+  }
+}
+@media screen and (max-width: 1100px) {
+  #mainEventDetails article {
+    margin-top: 16px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #mainEventDetails article div:nth-of-type(1) {
+    margin-bottom: 16px;
+  }
+}
+@media screen and (max-width: 900px) {
+  #mainEvents #s-events > div article img {
+    width: 300px;
+    height: 250px;
+  }
+}
+@media screen and (max-width: 800px) {
+  #mainEvents #s-events > div article {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #mainEvents #s-events > div article img {
+    margin-bottom: 16px;
+  }
+  #mainEvents #s-events > div article div {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #mainEvents #s-events > div article div div:nth-of-type(1) h4 {
+    text-align: center;
+  }
+  #mainEvents #s-events > div article div div:nth-of-type(1) p {
+    text-align: center;
+  }
+  #mainEvents #s-events > div article div div:nth-of-type(2) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 550px) {
+  #mainEvents #s-events > p {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1500px) {
+  #mainGallery #s-gallery a {
+    height: 350px;
+  }
+}
+@media screen and (max-width: 900px) {
+  #mainGallery #s-gallery a {
+    height: 250px;
+  }
+}
+@media screen and (max-width: 750px) {
+  #mainGallery #s-gallery {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #mainGallery #s-gallery a {
+    width: 100%;
+    height: 600px;
+  }
+}
+@media screen and (max-width: 550px) {
+  #mainGallery #s-gallery {
+    padding: 16px 0px;
+  }
+  #mainGallery #s-gallery a {
+    width: 100%;
+    height: 500px;
+  }
+}
+@media screen and (max-width: 550px) {
+  #mainRegister form {
+    width: 300px;
+  }
+  #mainRegister form h1 {
+    text-align: center;
+  }
+  #mainRegister form div input {
+    width: 274px;
+  }
+  #mainRegister form button {
+    width: 300px;
+  }
+  #mainRegister form p {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 550px) {
+  #mainLogin form {
+    width: 300px;
+  }
+  #mainLogin form h1 {
+    text-align: center;
+  }
+  #mainLogin form input {
+    width: 274px;
+  }
+  #mainLogin form button {
+    width: 300px;
+  }
+  #mainLogin form p {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 800px) {
+  #mainConfidencialPolicy {
+    text-align: center;
+  }
+  #mainConfidencialPolicy h2, #mainConfidencialPolicy h3 {
+    text-align: center;
+  }
+  #mainConfidencialPolicy p {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 800px) {
+  #mainLegalnotices {
+    text-align: center;
+  }
+  #mainLegalnotices h2, #mainLegalnotices h3 {
+    text-align: center;
+  }
+  #mainLegalnotices p {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 550px) {
+  footer h3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

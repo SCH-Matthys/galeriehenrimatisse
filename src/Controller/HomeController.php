@@ -25,4 +25,20 @@ final class HomeController extends AbstractController
             
         ]);
     }
+
+    #[Route('/mentionslegales', name: 'app_mentionslegales')]
+    public function mentionslegales(): Response
+    {
+        return $this->render('informations/mentionslegales.html.twig', [
+            
+        ]);
+    }
+
+    #[Route('/politiquedeconfidentialite', name: 'app_politiquedeconfidentialite')]
+    public function politiquedeconfidentialite(): Response
+    {
+        return $this->render('informations/politiquedeconfidentialite.html.twig', [
+            
+        ]);
+    }
 }

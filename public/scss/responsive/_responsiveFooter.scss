@@ -1,0 +1,13 @@
+@use "./../abstract/variable" as var;
+@use "./../base/typo";
+
+@media screen and (max-width:(550px)){
+    footer{
+        h3{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        } 
+    }
+}
