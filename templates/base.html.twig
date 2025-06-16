@@ -37,6 +37,9 @@
                     {% if not is_granted("ROLE_USER") %}
                         <li><a class="{% if app.request.attributes.get('_route') == 'app_login' %}active{% endif %}" href="{{ path("app_login") }}">CONNEXION</a></li>
                         <li><a class="{% if app.request.attributes.get('_route') == 'app_register' %}active{% endif %}" href="{{ path("app_register") }}">INSCRIPTION</a></li>
+                        {% else %}
+                            <li></li>
+                            <li></li>
                     {% endif %}
                     {% if is_granted("ROLE_USER") %}
                         <li><a class="{% if app.request.attributes.get('_route') == 'app_profil' %}active{% endif %}" href="{{ path('app_profil', {"id": app.user.id }) }}">PROFIL</a></li>
