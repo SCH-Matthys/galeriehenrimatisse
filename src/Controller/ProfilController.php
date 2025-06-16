@@ -40,11 +40,9 @@ final class ProfilController extends AbstractController
     }
  
     #[IsGranted("ROLE_USER")]
-    #[Route('/profil/createGallery', name: 'app_createGallery')]
-    public function createGallery(Request $request, Security $security, EntityManagerInterface $entityManagerInterface): Response
+    #[Route('/profil/{id}/createGallery', name: 'app_createGallery')]
+    public function createGallery(Request $request, Security $security, User $user, EntityManagerInterface $entityManagerInterface): Response
     {
-        $user = $security->getUser(); 
-
         if($user->getGallery()){
             $this->addFlash('warning', 'Vous avez déjà une galerie.');
             return $this->redirectToRoute('app_profil');
@@ -57,11 +55,7 @@ final class ProfilController extends AbstractController
 
         $this->addFlash("success", "Votre galerie à bien été créée.");
 
-        return $this->redirectToRoute("app_profil");
-
-        return $this->render('profil/profil.html.twig', [
-            "user" => $user,
-        ]);
+        return $this->redirectToRoute('app_profil', ['id' => $user->getId()]);
     }
 
     #[IsGranted("ROLE_USER")]

@@ -15,12 +15,10 @@
         <div></div>
         <section id="s-gallery">
             {% if user.gallery == null and app.user.id == user.id %}
-                <a href="{{ path("app_createGallery") }}" class="btn">Créez votre galerie</a>
+                <a href="{{ path("app_createGallery", {"id":user.id}) }}" class="btn">Créez votre galerie</a>
             {% elseif app.user == user %}
                 <a href="{{ path("add_artwork", {"id":user.id}) }}" class="btn">Ajouter une oeuvre à votre galerie</a>
-                
-            {% endif %}
-            <div id="artworks">
+                <div id="artworks">
                 {% for artwork in gallery.artworks %}
                     <article>
                         {% set firstImage = artwork.artworkImages|first %}
@@ -50,6 +48,8 @@
                     </article>
                 {% endfor %}
             </div>
+            {% endif %}
+            
             {# {% endif %} #}
         </section>
     </main>
