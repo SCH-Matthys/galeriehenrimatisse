@@ -1892,6 +1892,43 @@ footer p {
   }
 }
 @media screen and (max-width: 550px) {
+  #mainContact > form {
+    width: 350px;
+  }
+  #mainContact > form h2 {
+    text-align: center;
+  }
+  #mainContact > form > div > div input {
+    width: 300px;
+  }
+  #mainContact > form > div > div textarea {
+    width: 300px;
+  }
+  #mainContact > form > div > div button {
+    width: 325px;
+  }
+}
+@media screen and (max-width: 550px) {
+  #mainAddArtwork > form, #mainEditArtwork > form {
+    width: 350px;
+  }
+  #mainAddArtwork > form h2, #mainEditArtwork > form h2 {
+    text-align: center;
+  }
+  #mainAddArtwork > form p, #mainEditArtwork > form p {
+    text-align: center;
+  }
+  #mainAddArtwork > form > div input, #mainEditArtwork > form > div input {
+    width: 300px;
+  }
+  #mainAddArtwork > form > div textarea, #mainEditArtwork > form > div textarea {
+    width: 300px;
+  }
+  #mainAddArtwork > form button, #mainEditArtwork > form button {
+    width: 325px;
+  }
+}
+@media screen and (max-width: 550px) {
   footer h3 {
     display: flex;
     flex-direction: column;

@@ -611,3 +611,60 @@
         }
     }
 }
+
+// main contact //////////////////////////////////////////////////////////////////////////////////////////
+// main contact //////////////////////////////////////////////////////////////////////////////////////////
+// main contact //////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width:(550px)){
+    #mainContact{
+        >form{
+            width: 350px;
+            h2{
+                text-align: center;
+            }
+            >div{
+                >div{
+                    input{
+                        width: 300px;
+                    }
+                    textarea{
+                        width: 300px;
+                    }
+                    button{
+                        width: 325px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// main addArtwork editArtwork //////////////////////////////////////////////////////////////////////////////////////////
+// main addArtwork editArtwork //////////////////////////////////////////////////////////////////////////////////////////
+// main addArtwork editArtwork //////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width:(550px)){
+    #mainAddArtwork,#mainEditArtwork{
+        >form{
+            width: 350px;
+            h2{
+                text-align: center;
+            }
+            p{
+                text-align: center;
+            }
+            >div{
+                input{
+                    width: 300px;
+                }
+                textarea{
+                    width: 300px;
+                }
+            }
+            button{
+                width: 325px;
+            }
+        }
+    }
+}
