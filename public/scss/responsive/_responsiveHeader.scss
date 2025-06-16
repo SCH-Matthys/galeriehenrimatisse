@@ -3,7 +3,15 @@
 
 @media screen and (max-width:(1100px)){
     header{
-        div{
+    }
+}
+
+@media screen and (max-width:(1100px)){
+    header{
+        >div{
+            >ul{
+                display: none;
+            }
             ul{
                 top: 16px;
                 flex-direction: column;
@@ -13,19 +21,11 @@
                 }
             }
         }
-    }
-}
-
-@media screen and (max-width:(1100px)){
-    header{
         div{
             padding-bottom: 72px;
             #menuBurger{
                 top: 60px;
                 display: flex;
-            }
-            ul{
-                display: none;
             }
         }
         nav{
@@ -33,7 +33,7 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                li:nth-of-type(5),li:nth-of-type(6){
+                li:nth-of-type(5),li:nth-of-type(6),li:nth-of-type(8){
                     display: block;
                 }
             }

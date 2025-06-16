@@ -18,39 +18,40 @@
                 <a href="{{ path("app_createGallery", {"id":user.id}) }}" class="btn">Créez votre galerie</a>
             {% elseif app.user == user %}
                 <a href="{{ path("add_artwork", {"id":user.id}) }}" class="btn">Ajouter une oeuvre à votre galerie</a>
-                <div id="artworks">
-                {% for artwork in gallery.artworks %}
-                    <article>
-                        {% set firstImage = artwork.artworkImages|first %}
-                        {% if firstImage %}
-                            <a href="{{ path("app_artworkDetails", {"id": artwork.id}) }}">
-                                <img src="{{ asset('uploads/artworkImages/' ~ firstImage.imageName) }}" alt="{{ artwork.name }}">
-                            </a>
-                        {% else %}
-                            <p>(Aucune image)</p>
-                        {% endif %}
+            {% endif %}
+        </section>
+        {% if gallery %}
+        
+             <div id="artworks">
+            {% for artwork in gallery.artworks %}
+                <article>
+                    {% set firstImage = artwork.artworkImages|first %}
+                    {% if firstImage %}
+                        <a href="{{ path("app_artworkDetails", {"id": artwork.id}) }}">
+                            <img src="{{ asset('uploads/artworkImages/' ~ firstImage.imageName) }}" alt="{{ artwork.name }}">
+                        </a>
+                    {% else %}
+                        <p>(Aucune image)</p>
+                    {% endif %}
 
-                        {# <pre>
-                            {{ dump(artwork) }}
-                        </pre> #}
-
-                        {% if is_granted("ROLE_ADMIN") or app.user == artwork.gallery.user %}
+                    {# Affichage des boutons modifier/supprimer seulement pour l'admin ou le propriétaire #}
+                    {% if is_granted("ROLE_ADMIN") or app.user == artwork.gallery.user %}
                         <div>
                             <a href="{{ path("edit_oeuvre", {"id": app.user.id, "artwork": artwork.id}) }}">Modifier</a>
-                            <form method="POST" onsubmit="return confirm('Vous êtes sur de vouloir supprimer cette oeuvr ede votre galerie ? Cliquez sur [ OK ] pour valider la suppression.')"
-                                action="{{ path('delete_artwork', {"id": app.user.id, 'artwork': artwork.id}) }}">
+                            <form method="POST" onsubmit="return confirm('Vous êtes sûr de vouloir supprimer cette œuvre ?')"
+                                  action="{{ path('delete_artwork', {"id": app.user.id, 'artwork': artwork.id}) }}">
                                 <input type="hidden" name="_method" value="delete">
-                                <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ artwork.id)}}">
-                                <input type="submit" id="delete" value="supprimer">
+                                <input type="hidden" name="_token" value="{{ csrf_token('SUP' ~ artwork.id) }}">
+                                <input type="submit" id="delete" value="Supprimer">
                             </form>
                         </div>
-                        {% endif %}
-                    </article>
-                {% endfor %}
-            </div>
-            {% endif %}
-            
-            {# {% endif %} #}
-        </section>
+                    {% endif %}
+                </article>
+            {% else %}
+                <p>Aucune œuvre dans cette galerie pour le moment.</p>
+            {% endfor %}
+        </div>
+
+        {% endif %}
     </main>
 {% endblock %}

@@ -903,7 +903,7 @@ header .hidden {
   transform: translateX(-50%);
   display: inline-block;
 }
-#mainProfil #s-gallery #artworks {
+#mainProfil #artworks {
   margin-top: 32px;
   display: flex;
   flex-wrap: wrap;
@@ -911,21 +911,21 @@ header .hidden {
   justify-content: center;
   align-items: center;
 }
-#mainProfil #s-gallery #artworks article {
-  width: calc(33.3333333333% - 76px);
+#mainProfil #artworks article {
+  width: 400px;
   height: 400px;
   min-width: 400px;
   position: relative;
 }
-#mainProfil #s-gallery #artworks article > a {
+#mainProfil #artworks article > a {
   transition: 0.2s;
 }
-#mainProfil #s-gallery #artworks article > a img {
+#mainProfil #artworks article > a img {
   height: 100%;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
-#mainProfil #s-gallery #artworks article > div {
+#mainProfil #artworks article > div {
   position: absolute;
   bottom: 56px;
   left: 0px;
@@ -935,7 +935,7 @@ header .hidden {
   align-items: center;
   width: 100%;
 }
-#mainProfil #s-gallery #artworks article > div a {
+#mainProfil #artworks article > div a {
   width: 98px;
   text-align: center;
   border: solid 2px black;
@@ -950,12 +950,12 @@ header .hidden {
   letter-spacing: 1px;
   transition: 0.2s;
 }
-#mainProfil #s-gallery #artworks article > div a:hover {
+#mainProfil #artworks article > div a:hover {
   border: solid 2px rgb(34, 101, 255);
   color: white;
   background-color: rgb(34, 101, 255);
 }
-#mainProfil #s-gallery #artworks article > div input {
+#mainProfil #artworks article > div input {
   width: 150px;
   border: solid 2px black;
   text-transform: capitalize;
@@ -970,7 +970,7 @@ header .hidden {
   cursor: pointer;
   transition: 0.2s;
 }
-#mainProfil #s-gallery #artworks article > div input:hover {
+#mainProfil #artworks article > div input:hover {
   background-color: rgb(159, 0, 0);
   border: solid 2px rgb(159, 0, 0);
   color: white;
@@ -1428,16 +1428,17 @@ footer p {
 }
 
 @media screen and (max-width: 1100px) {
-  header div ul {
+  header > div > ul {
+    display: none;
+  }
+  header > div ul {
     top: 16px;
     flex-direction: column;
     align-items: flex-end;
   }
-  header div ul li:nth-of-type(2) {
+  header > div ul li:nth-of-type(2) {
     display: none;
   }
-}
-@media screen and (max-width: 1100px) {
   header div {
     padding-bottom: 72px;
   }
@@ -1445,15 +1446,12 @@ footer p {
     top: 60px;
     display: flex;
   }
-  header div ul {
-    display: none;
-  }
   header nav ul {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  header nav ul li:nth-of-type(5), header nav ul li:nth-of-type(6) {
+  header nav ul li:nth-of-type(5), header nav ul li:nth-of-type(6), header nav ul li:nth-of-type(8) {
     display: block;
   }
 }
@@ -1841,6 +1839,56 @@ footer p {
   #mainArtworkDetails #s-artworks > div article {
     width: 100%;
     height: 100%;
+  }
+}
+@media screen and (max-width: 1300px) {
+  #mainProfil #s-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #mainProfil #s-gallery > a {
+    width: 350px;
+    margin-left: 0px;
+    transform: translateX(0px);
+  }
+  #mainProfil #artworks {
+    gap: 8px;
+  }
+  #mainProfil #artworks article {
+    width: 400px;
+    height: 450px;
+  }
+}
+@media screen and (max-width: 900px) {
+  #mainProfil #artworks article {
+    min-width: 100px;
+    width: calc(50% - 8px);
+    height: 350px;
+  }
+  #mainProfil #artworks article > a {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 750px) {
+  #mainProfil #artworks article {
+    width: 80%;
+    height: 450px;
+  }
+}
+@media screen and (max-width: 550px) {
+  #mainProfil {
+    padding: 0px;
+  }
+  #mainProfil #s-profil {
+    padding-left: 8px;
+  }
+  #mainProfil #s-gallery > a {
+    padding: 6px 8px;
+  }
+  #mainProfil #artworks article {
+    width: 100%;
+    height: 400px;
   }
 }
 @media screen and (max-width: 550px) {
