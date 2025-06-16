@@ -28,14 +28,16 @@
                     {% endif %}
                 </ul>
             </div>
-            <nav class="nav-hidden">
+            <nav class="">
                 <ul>
                     <li><a class="{% if app.request.attributes.get('_route') == 'app_home' %}active{% endif %}" href="{{ path("app_home") }}">ACCUEIL</a></li>
                     <li><a class="{% if app.request.attributes.get('_route') == 'app_informations' %}active{% endif %}" href="{{ path("app_informations") }}">INFORMATIONS</a></li>
                     <li><a class="{% if app.request.attributes.get('_route') == 'app_event' %}active{% endif %}" href="{{ path("app_event") }}">ÉVÉNEMENTS</a></li>
                     <li><a class="{% if app.request.attributes.get('_route') == 'app_gallery' %}active{% endif %}" href="{{ path("app_gallery") }}">GALERIE</a></li>
-                    <li><a class="{% if app.request.attributes.get('_route') == 'app_login' %}active{% endif %}" href="{{ path("app_login") }}">CONNEXION</a></li>
-                    <li><a class="{% if app.request.attributes.get('_route') == 'app_register' %}active{% endif %}" href="{{ path("app_register") }}">INSCRIPTION</a></li>
+                    {% if not is_granted("ROLE_USER") %}
+                        <li><a class="{% if app.request.attributes.get('_route') == 'app_login' %}active{% endif %}" href="{{ path("app_login") }}">CONNEXION</a></li>
+                        <li><a class="{% if app.request.attributes.get('_route') == 'app_register' %}active{% endif %}" href="{{ path("app_register") }}">INSCRIPTION</a></li>
+                    {% endif %}
                     {% if is_granted("ROLE_USER") %}
                         <li><a class="{% if app.request.attributes.get('_route') == 'app_profil' %}active{% endif %}" href="{{ path('app_profil', {"id": app.user.id }) }}">PROFIL</a></li>
                         <li><a href="{{ path("app_logout") }}">DECONNEXION</a></li>

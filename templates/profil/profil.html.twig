@@ -16,10 +16,11 @@
         <section id="s-gallery">
             {% if user.gallery == null and app.user.id == user.id %}
                 <a href="{{ path("app_createGallery") }}" class="btn">Créez votre galerie</a>
-            {% elseif app.user.id == user.id %}
+            {% elseif app.user == user %}
                 <a href="{{ path("add_artwork", {"id":user.id}) }}" class="btn">Ajouter une oeuvre à votre galerie</a>
-                <div id="artworks">
+                
             {% endif %}
+            <div id="artworks">
                 {% for artwork in gallery.artworks %}
                     <article>
                         {% set firstImage = artwork.artworkImages|first %}
@@ -35,7 +36,7 @@
                             {{ dump(artwork) }}
                         </pre> #}
 
-                        {% if is_granted("ROLE_ADMIN") or app.user.id == artwork.gallery.user.id %}
+                        {% if is_granted("ROLE_ADMIN") or app.user == artwork.gallery.user %}
                         <div>
                             <a href="{{ path("edit_oeuvre", {"id": app.user.id, "artwork": artwork.id}) }}">Modifier</a>
                             <form method="POST" onsubmit="return confirm('Vous êtes sur de vouloir supprimer cette oeuvr ede votre galerie ? Cliquez sur [ OK ] pour valider la suppression.')"

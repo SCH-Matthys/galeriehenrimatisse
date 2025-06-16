@@ -73,7 +73,7 @@ header{
             top: 64px;
             transition: 0.3s;
             &.active div:nth-child(1) {
-                transform: rotate(45deg) translate(18px, 5px);
+                transform: rotate(45deg) translate(10px, 14px);
             }
 
             &.active div:nth-child(2) {
@@ -81,7 +81,7 @@ header{
             }
 
             &.active div:nth-child(3) {
-                transform: rotate(-45deg) translate(18px, -5px);
+                transform: rotate(-45deg) translate(10px, -14px);
             }
             >div{
                 border-radius: 4px;

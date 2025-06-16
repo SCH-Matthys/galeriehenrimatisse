@@ -96,13 +96,13 @@ header > div #menuBurger {
   transition: 0.3s;
 }
 header > div #menuBurger.active div:nth-child(1) {
-  transform: rotate(45deg) translate(18px, 5px);
+  transform: rotate(45deg) translate(10px, 14px);
 }
 header > div #menuBurger.active div:nth-child(2) {
   opacity: 0;
 }
 header > div #menuBurger.active div:nth-child(3) {
-  transform: rotate(-45deg) translate(18px, -5px);
+  transform: rotate(-45deg) translate(10px, -14px);
 }
 header > div #menuBurger > div {
   border-radius: 4px;
@@ -938,8 +938,8 @@ header .hidden {
 #mainProfil #s-gallery #artworks article > div a {
   width: 98px;
   text-align: center;
-  border: solid 2px rgb(34, 101, 255);
-  color: rgb(0, 56, 186);
+  border: solid 2px black;
+  color: black;
   text-transform: capitalize;
   padding: 8px 24px;
   border-radius: 32px;
@@ -951,17 +951,18 @@ header .hidden {
   transition: 0.2s;
 }
 #mainProfil #s-gallery #artworks article > div a:hover {
+  border: solid 2px rgb(34, 101, 255);
   color: white;
   background-color: rgb(34, 101, 255);
 }
 #mainProfil #s-gallery #artworks article > div input {
   width: 150px;
-  border: solid 2px rgb(239, 32, 32);
+  border: solid 2px black;
   text-transform: capitalize;
   padding: 8px 24px;
   border-radius: 32px;
   background-color: white;
-  color: rgb(159, 0, 0);
+  color: black;
   font-size: 16px;
   font-family: Urbanist;
   font-weight: bold;
@@ -970,7 +971,8 @@ header .hidden {
   transition: 0.2s;
 }
 #mainProfil #s-gallery #artworks article > div input:hover {
-  background-color: rgb(239, 32, 32);
+  background-color: rgb(159, 0, 0);
+  border: solid 2px rgb(159, 0, 0);
   color: white;
 }
 
@@ -1094,6 +1096,13 @@ header .hidden {
   font-size: 16px;
   font-family: Urbanist;
   letter-spacing: 1px;
+}
+#mainArtworkDetails > p > a {
+  color: rgb(0, 56, 186);
+  transition: 0.2s;
+}
+#mainArtworkDetails > p > a:hover {
+  text-decoration: underline;
 }
 #mainArtworkDetails > div.border {
   border-bottom: 1px solid rgb(203, 203, 203);
@@ -1840,6 +1849,12 @@ footer p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  footer ul {
+    margin-bottom: 16px;
+  }
+  footer > p {
+    text-align: center;
   }
 }
 

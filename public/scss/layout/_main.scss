@@ -881,8 +881,8 @@
                     a{
                         width: 98px;
                         text-align: center;
-                        border: solid 2px var.$border-bleu;
-                        color: var.$color-blue;
+                        border: solid 2px black;
+                        color: black;
                         text-transform: capitalize;
                         padding: 8px 24px;
                         border-radius: 32px;
@@ -893,19 +893,19 @@
                         letter-spacing: 1px;
                         transition: 0.2s;
                         &:hover{
-                            // border: solid 2px rgb(0, 56, 186);
+                            border: solid 2px var.$border-bleu;
                             color: white;
                             background-color: var.$border-bleu;
                         }
                     }
                     input{
                         width: 150px;
-                        border: solid 2px var.$border-rouge;
+                        border: solid 2px black;
                         text-transform: capitalize;
                         padding: 8px 24px;
                         border-radius: 32px;
                         background-color: white;
-                        color: var.$color-rouge;
+                        color: black;
                         font-size: 16px;
                         font-family: Urbanist;
                         font-weight: bold;
@@ -913,7 +913,8 @@
                         cursor: pointer;
                         transition: 0.2s;
                         &:hover{
-                            background-color: var.$border-rouge;
+                            background-color: var.$color-rouge;
+                            border: solid 2px var.$color-rouge;
                             color: white;
                         }
                     }
@@ -1063,6 +1064,13 @@
         font-size: 16px;
         font-family: Urbanist;
         letter-spacing: 1px;
+        >a{
+            color: var.$color-blue;
+            transition: 0.2s;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
     }
     >div.border{
         border-bottom: 1px solid var.$border;

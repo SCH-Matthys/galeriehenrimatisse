@@ -8,4 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
         menuBurger.classList.toggle("active");
         console.log("click");
     });
+
+    
+    function updateNavVisibility() {
+        if (window.innerWidth < 1100) {
+            nav.classList.add("nav-hidden");
+        } else {
+            nav.classList.remove("nav-hidden");
+        }
+    }
+
+    updateNavVisibility();
+
+    window.addEventListener("resize", updateNavVisibility);
 });
