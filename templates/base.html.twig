@@ -13,6 +13,11 @@
                 <a href="{{ path("app_home") }}">
                     <h1>Galerie <span></span> Henri <span></span> Matisse</h1>
                 </a>
+                <div id="menuBurger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
                 <ul>
                     {% if is_granted("ROLE_USER") %}
                         <li><a href="{{ path("app_logout") }}">DECONNEXION</a></li>
@@ -23,7 +28,7 @@
                     {% endif %}
                 </ul>
             </div>
-            <nav>
+            <nav class="nav-hidden">
                 <ul>
                     <li><a class="{% if app.request.attributes.get('_route') == 'app_home' %}active{% endif %}" href="{{ path("app_home") }}">ACCUEIL</a></li>
                     <li><a class="{% if app.request.attributes.get('_route') == 'app_informations' %}active{% endif %}" href="{{ path("app_informations") }}">INFORMATIONS</a></li>
@@ -45,13 +50,13 @@
 
     {% block main %}{% endblock %}
 
-    {% for label, messages in app.flashes %}
-    {% for message in messages %}
-        <div class="flash-{{ label }}">
-            {{ message }}
-        </div>
-    {% endfor %}
-{% endfor %}
+    {# {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %} #}
 
     {% block footer %}
         <footer>
@@ -73,6 +78,8 @@
             <p>Site réalisé par Matthys S. dans le cadre d'un projet de formation DWWM.</p>
         </footer>
     {% endblock %}
-    {% block JavaScript %}{% endblock %}
+    {% block JavaScript %}
+        <script src="{{ asset("js/menuBurger.js") }}"></script>
+    {% endblock %}
     </body>
 </html>

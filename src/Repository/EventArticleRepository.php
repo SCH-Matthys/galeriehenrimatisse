@@ -59,4 +59,13 @@ class EventArticleRepository extends ServiceEntityRepository
                         ->getQuery()
                         ->getResult();
         }
+
+        public function findAllDesc(): array
+        {
+            return $this->createQueryBuilder("e")
+                        ->orderBy("e.date", "DESC")
+                        // ->setMaxResults($limit)
+                        ->getQuery()
+                        ->getResult();
+        }
 }

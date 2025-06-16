@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer votre commentaire{% endblock %}
+
+{% block main %}
+    <main id="mainCommentEdit">
+        {{ form_start(form) }}
+            <h2>Modifier un commentaire</h2>
+            <p>Modifiez votre commenaire puis validez.
+            {{ form_widget(form)}}
+            <button>Modifier</button>
+        {{ form_end(form) }}
+    </main>
+{% endblock %}

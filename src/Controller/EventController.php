@@ -21,7 +21,8 @@ final class EventController extends AbstractController
     #[Route('/event', name: 'app_event')]
     public function index(EventArticleRepository $eventRepository): Response
     {   
-        $events = $eventRepository->findAll();
+        // $events = $eventRepository->findAll();
+        $events = $eventRepository->findAllDesc();
         return $this->render('event/event.html.twig', [
             "events" => $events,
         ]);
@@ -115,10 +116,16 @@ final class EventController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
             $this->addFlash('success', 'Votre commentaire a été modifié.');
-            return $this->redirectToRoute('details_event', ['id' => $event->getId()]);
+            return $this->redirectToRoute('details_event', [
+                'id' => $event->getId(), 
+            ]);
         }
 
-        return $this->redirectToRoute('details_event', ['id' => $event->getId()]);
+        return $this->render("event/commentEdit.html.twig", [
+            "event" => $event,
+            'comment' => $event->getComments(),
+            'form' => $form->createView(),
+        ]);
     }
 
     #[Route('/event/{event}/comment/delete/{comment}', name: 'app_deleteComment')]
@@ -132,4 +139,10 @@ final class EventController extends AbstractController
         }
         return $this->redirectToRoute("details_event", ['id' => $event->getId()]);
     }
+
+    // #[Route('/event/{event}/comment/delete/{comment}', name: 'app_deleteComment')]
+    // public function editCom(Request $request, EntityManagerInterface $entityManager, EventArticle $event, Comment $comment): Response
+    // {
+
+    // }
 }

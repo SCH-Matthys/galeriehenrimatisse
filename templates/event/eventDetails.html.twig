@@ -23,20 +23,30 @@
         {{ form_end(form) }}
     {% endif %}
 
-    {% for comment in event.comments %}
-        <p>{{ comment.content }}</p>
-        <p>par : {{ comment.user.firstName }}</p>
-        <p>le : {{ comment.date|date('d/m/Y H:i') }}</p>
-        {% if app.user and app.user.id == comment.user.id %}
-            <div>
-                <a href="{{ path("app_editComment", {'event': event.id, 'comment': comment.id}) }}">Modifier</a>
-                <form method="POST" onsubmit="return confirm('Voulez vous vraiment supprimer ce commentaire ?')" action="{{ path("app_deleteComment", {'event': event.id, 'comment': comment.id}) }}">
-                    {# <input type="hidden" name="_method" value="delete"> #}
-                    <input type="hidden" name="_token" value="{{ csrf_token('SUP' ~ comment.id)}}">
-                    <input id="delete" type="submit" value="Supprimer">
-                </form>
-            </div>
+    <section id="s-comment">
+        <div></div>
+        <h2>Vos Commentaires</h2>
+        {% if event.comments|length > 0 %}
+                {% for comment in event.comments %}
+                    <div class="comment">
+                        <p>{{ comment.content }}</p>
+                        <p>par : {{ comment.user.firstName }}</p>
+                        <p>le : {{ comment.date|date('d/m/Y') }} à {{ comment.date|date('H:i') }}</p>
+                        {% if app.user and app.user.id == comment.user.id  or is_granted("ROLE_ADMIN") %}
+                            <div>
+                                <a href="{{ path("app_editComment", {'event': event.id, 'comment': comment.id}) }}">Modifier</a>
+                                <form method="POST" onsubmit="return confirm('Voulez vous vraiment supprimer ce commentaire ?')" action="{{ path("app_deleteComment", {'event': event.id, 'comment': comment.id}) }}">
+                                    {# <input type="hidden" name="_method" value="delete"> #}
+                                    <input type="hidden" name="_token" value="{{ csrf_token('SUP' ~ comment.id)}}">
+                                    <input id="delete" type="submit" value="Supprimer">
+                                </form>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+        {% else %}
+            <p>Aucun commentaire pour le moment. Soyez le premier à laisser le votre.</p>
         {% endif %}
-    {% endfor %}
+    </section>
 </main>
 {% endblock %}

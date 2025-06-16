@@ -270,11 +270,9 @@
         display: flex;
         padding: 32px;
         flex-wrap: wrap;
-        justify-content: start;
-        align-items: flex-start;
         gap: 8px;
         a{
-            width: calc( (100vw / 3) - 32px );
+            width: calc( (100% / 3) - 6px);
             height: 450px;
             // border: solid 1px black;
         }
@@ -306,7 +304,7 @@
             padding-bottom: 16px;
         }
         >a{
-            margin: 32px;
+            display: block;
             margin-left: 50%;
             transform: translateX(-50%);
         }
@@ -356,6 +354,7 @@
                         display: flex;
                         flex-direction: row;
                         justify-content: start;
+                        flex-wrap: wrap;
                         gap: 8px;
                         a:nth-of-type(1){
                             font-size: 16px;
@@ -382,15 +381,16 @@
                             font-family: Urbanist;
                             letter-spacing: 1px;
                             padding: 8px 24px;
-                            border: 2px solid var.$border-bleu;
+                            border: 2px solid black;
                             background-color: white;
                             border-radius: 32px;
-                            color: var.$color-blue;
+                            color: black;
                             transition: 0.2s;
                             min-width: 98px;
                             text-align: center;
                             font-weight: bold;
                             &:hover{
+                                border: 2px solid var.$border-bleu;
                                 background-color: var.$border-bleu;
                                 color: white;
                             }
@@ -411,7 +411,8 @@
                                 min-width: 150px;
                                 cursor: pointer;
                                 &:hover{
-                                    background-color: var.$border-rouge;
+                                    border: 2px solid var.$color-rouge;
+                                    background-color: var.$color-rouge;
                                     color: white;
                                 }
                             }
@@ -620,9 +621,14 @@
         border-bottom: solid 1px var.$border;
         margin: 32px auto;
     }
-    form{
-        width: 426px;
-        margin: auto;
+    >form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // margin-left: 50%;
+        // transform: translateX(-50%);
         label{
             display: none;
         }
@@ -638,8 +644,171 @@
             margin-bottom: 16px
         };
     }
+    #s-comment{
+        >div:nth-of-type(1){
+            width: 300px;
+            margin: 64px auto;
+            border-bottom: solid 1px var.$border;
+        }
+        h2{
+            font-size: 28px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+        >p{
+            text-align: center;
+            a{
+                color: var.$color-blue;
+                transition: 0.2s;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+        .comment{
+            padding: 4px;
+            width: 800px;
+            margin: auto;
+            // border: solid 1px red;
+            >p:nth-of-type(1){
+                font-size: 18px;
+                padding: 16px 16px;
+                border-radius: 24px;
+                background-color: white;
+            }
+            >p:nth-of-type(2){
+                font-size: 14px;
+                text-align: end;
+                padding-top: 8px;
+                padding-bottom: 8px;
+            }
+            >p:nth-of-type(3){
+                font-size: 14px;
+                text-align: end;
+                padding-bottom: 8px;
+            }
+            >div{
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                >a{
+                        padding: 8px 16px;
+                        width: 94px;
+                        border: solid 2px black;
+                        font-weight: bold;
+                        background-color: white;
+                        cursor: pointer;
+                        transition: 0.3s;
+                        color: black;
+                        border-radius: 24px;
+                        text-align: center;
+                        margin-right: 16px;
+                        letter-spacing: 1px;
+                        &:hover{
+                            border: solid 2px var.$color-blue;
+                            background-color: var.$color-blue;
+                            color: white;
+                        }   
+                }
+                >form{
+                    width: 130px;
+                    #delete{
+                        letter-spacing: 1px;
+                        font-family: Urbanist;
+                        width: 100%;
+                        padding: 8px 16px;
+                        border: solid 2px var.$border-rouge;
+                        color: var.$color-rouge;
+                        font-weight: bold;
+                        background-color: white;
+                        cursor: pointer;
+                        transition: 0.3s;
+                        border-radius: 24px;
+                        text-align: center;
+                        &:hover{
+                            border: solid 2px var.$color-rouge;
+                            background-color: var.$color-rouge;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
+// Page Comment edit /////////////////////////////////////////////////////////////////////////////////////////////////////
+// Page Comment edit /////////////////////////////////////////////////////////////////////////////////////////////////////
+// Page Comment edit /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#mainCommentEdit{
+    padding: 64px 32px;
+    background-color: var.$background-color;
+    min-height: calc( 100vh - 568px);
+    form{
+        margin: auto;
+        width: 426px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        padding-bottom: 16px;
+        >p{
+            padding-top: 0px;
+            margin-bottom: 16px;
+        }
+        h2{
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 24px;
+            padding-bottom: 16px;
+        }
+        >div{
+            >div{
+                label{
+                    font-size: 18px;
+                    padding-bottom: 4px;
+                    padding-left: 4px;
+                    font-family: Urbanist;
+                    letter-spacing: 1px;
+                }
+                textarea{
+                    margin-top: 4px;
+                    font-family: Urbanist;
+                    letter-spacing: 1px;
+                    width: calc( 426px - 26px);
+                    border-radius: 16px;
+                    border: solid 1px rgb(110, 110, 110);
+                    font-size: 14px;
+                    padding: 16px 12px;
+                    min-height: 50px;
+                }
+            }
+        }
+        button{
+            margin-top: 16px;  
+            background-color: white;
+            color: black;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 32px;
+            border: solid 2px rgb(0, 0, 0);
+            display: inline-block;
+            width: 426px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-family: Urbanist;
+            transition: 0.2s;
+            &:hover{
+                color: white;
+                background-color: black;
+            }
+        }
+    }
+}
 
 // page Profil ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // page Profil ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -906,8 +1075,10 @@
         justify-content: flex-start;
         margin-top: 16px;
         gap: 12px;
-        article{
+        >div{
             width: calc( (100% / 3) - 8px );
+            article{
+                width: 100%;
             height: 500px;
             cursor: pointer;
             img{
@@ -916,6 +1087,53 @@
                 object-fit: cover;
             }
         }
+        >div{
+                margin-top: 8px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+                a{
+                    cursor: pointer;
+                    font-size: 16px;
+                    padding: 8px 16px;
+                    background-color: white;
+                    color: black;
+                    border: solid 2px black;
+                    border-radius: 24px;
+                    font-weight: bold;
+                    font-family: Urbanist;
+                    letter-spacing: 1px;
+                    transition: 0.3s;
+                    &:hover{
+                        color: white;
+                        background-color: var.$color-blue;
+                        border: solid 2px var.$color-blue;
+                    }
+                }
+                >form{
+                    #delete{
+                        cursor: pointer;
+                        font-size: 16px;
+                        padding: 8px 16px;
+                        background-color: white;
+                        color: black;
+                        border: solid 2px black;
+                        border-radius: 24px;
+                        font-weight: bold;
+                        font-family: Urbanist;
+                        letter-spacing: 1px;
+                        transition: 0.3s;
+                        &:hover{
+                            color: white;
+                            background-color: var.$color-rouge;
+                            border: solid 2px var.$color-rouge;
+                        }
+                    }
+                }
+            }
+        }
+        
     }
 
 

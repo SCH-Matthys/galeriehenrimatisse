@@ -7,30 +7,122 @@
 
 @media screen and (max-width:(1450px)){
     #mainHome{
+        background-color: var.$background-color;
         #s-events{
             .grid {
                 display: grid;
-                grid-template-columns: (2, 1fr);
-                grid-template-rows: 2fr 1fr 2fr 1fr 2fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: 500px 100px;
                 grid-column-gap: 16px;
                 grid-row-gap: 16px;
-                }
 
                 >a{
-.div1 { grid-area: 1 / 1 / 2 / 2; }
-.div2 { grid-area: 2 / 1 / 3 / 2; }
-.div3 { grid-area: 1 / 2 / 2 / 3; }
-.div4 { grid-area: 2 / 2 / 3 / 3; }
-.div5 { grid-area: 3 / 1 / 4 / 2; }
-.div6 { grid-area: 4 / 1 / 5 / 2; }
-.div7 { grid-area: 3 / 2 / 4 / 3; }
-.div8 { grid-area: 4 / 2 / 5 / 3; }
-.div9 { grid-area: 5 / 1 / 6 / 2; }
-.div10 { grid-area: 6 / 1 / 7 / 2; }
+                    .div1 { 
+                        grid-area: 1 / 1 / 2 / 2; 
+                        height: 500px;
+                    }
+                    .div2 { 
+                        grid-area: 2 / 1 / 3 / 2; 
+                    }
+                    .div3 { 
+                        grid-area: 1 / 2 / 2 / 3;
+                        height: 100%;
+                    }
+                    .div4 { grid-area: 2 / 2 / 3 / 3; }
+                    .div5 { grid-area: 3 / 1 / 4 / 2; }
+                    .div6 { grid-area: 4 / 1 / 5 / 2; }
+                    .div7 { grid-area: 3 / 2 / 4 / 3; }
+                    .div8 { grid-area: 4 / 2 / 5 / 3; }
+                    .div9 { grid-area: 5 / 1 / 6 / 2; }
+                    .div10 { grid-area: 6 / 1 / 7 / 2; }
                 }
+            }
         }
     }
 }
+
+@media screen and (max-width:(1000px)){
+    #mainHome{
+        #s-events{
+            .grid {
+                grid-template-rows: 400px 150px;
+                >a{
+                    .div1{
+                        height: 100%;
+                    }
+                    .div3{
+                        height: 100%;
+                    }
+                    .div5{
+                        height: 100%;
+                    }
+                    .div7{
+                        height: 100%;
+                    }
+                    .div9{
+                        height: 100%;
+                    }
+                }
+            }
+        }
+
+        #s-discover{
+            a{
+                height: 500px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:(800px)){
+    #mainHome{
+        #s-events{
+            h2{
+                padding-top: 16px;
+            }
+            .grid {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+            }
+        }
+        #s-discover{
+            a{
+                height: 400px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:(550px)){
+    #mainHome{
+        #s-events,#s-discover{
+            padding: 0px;
+            h2{
+                margin-top: 24px;
+                padding-left: 8px;
+            }
+            .grid{
+                grid-template-rows: 400px 175px;
+                >a{
+                    div:nth-of-type(1){
+                        height: 100%;
+                    }
+                    div:nth-of-type(2){
+                        padding: 8px;
+                        height: 100%;
+                    }
+                }
+            }
+            >a{
+                height: 300px;
+            }
+        }
+    }
+}
+
 
 // main Informations //////////////////////////////////////////////////////////////////////////////////////////
 // main Informations //////////////////////////////////////////////////////////////////////////////////////////
@@ -70,12 +162,120 @@
             flex-direction: column;
             div:nth-of-type(1){
                 margin-bottom: 16px;
+                img{
+                    margin: auto;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:(850px)){
+    #mainEventDetails{
+        >form{
+            textarea{
+                width: 400px;
+            }
+        }
+        #s-comment{
+            .comment{
+                width: 90%;
+                margin: auto;
             }
         }
     }
 }
 
+@media screen and (max-width:(650px)){
+    #mainEventDetails{
+        padding: 0px;
+        background-color: var.$background-color;
+        >form{
+            textarea{
+                width: 325px;
+            }
+            button{
+                width: 350px;
+            }
+        }
+        article{
+            width: 100vw;
+            div:nth-of-type(1){
+                width: 100%;
+                img{
+                    min-width: 100vw;
+                    width: 100vw;
+                }
+            }
+            div:nth-of-type(2){
+                width: calc(100% - 16px);
+                padding-left: 16px;
+            }
+        }
+        #s-comment{
+            margin-bottom: 32px;
+            h2{
+                padding-left: 8px;
+            }
+            >p{
+                width: 80%;
+                margin: auto;
+            }
+        }
+    }
+}
 
+// main Comment edit /////////////////////////////////////////////////////////////////////////////////////////////////////
+// main Comment edit /////////////////////////////////////////////////////////////////////////////////////////////////////
+// main Comment edit /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width:(550px)){
+    #mainCommentEdit{
+        >form{
+            width: 350px;
+            >h2{
+                text-align: center;
+            }
+            >p{
+                text-align: center;
+            }
+            >div{
+                >div{
+                    textarea{
+                        width: 325px;
+                    }
+                }
+            }
+            button{
+                width: 350px;
+            }
+        }
+    }   
+}
+
+@media screen and (max-width:(420px)){
+    #mainCommentEdit{
+        padding: 0px;
+        >form{
+            width: 350px;
+            >h2{
+                padding: 16px 8px;
+            }
+            >p{
+                padding-left: 8px;
+            }
+            >div{
+                >div{
+                    textarea{
+                        width: 325px;
+                    }
+                }
+            }
+            button{
+                width: 350px;
+            }
+        }
+    }   
+}
 // main Event //////////////////////////////////////////////////////////////////////////////////////////
 // main Event //////////////////////////////////////////////////////////////////////////////////////////
 // main Event //////////////////////////////////////////////////////////////////////////////////////////
@@ -136,6 +336,9 @@
             >p{
                 width: 100%;
             }
+            >a{
+                width: 80%;
+            }
             >div{
                
                 article{
@@ -193,7 +396,7 @@
             padding: 16px 0px;
             a{
                 width: 100%;
-                height: 500px;
+                height: 400px;
             }
         }
     }
@@ -279,6 +482,60 @@
         p{
             width: 100%;
             text-align: center;
+        }
+    }
+}
+
+// main mainArtworkDetails //////////////////////////////////////////////////////////////////////////////////////////
+// main mainArtworkDetails //////////////////////////////////////////////////////////////////////////////////////////
+// main mainArtworkDetails //////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (max-width:(1100px)){
+    #mainArtworkDetails{
+        #s-artworks{
+            div{
+                article{
+                    height: 350px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:(700px)){
+    #mainArtworkDetails{
+        padding: 0px;
+        >h2{
+            padding: 16px;
+        }
+        >p{
+            padding-left: 16px;
+            width: 90%;
+        }
+        #s-artworks{
+            div{
+                article{
+                    height: 250px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:(550px)){
+    #mainArtworkDetails{
+        #s-artworks{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            >div{
+                width: 100%;
+                height: 500px;
+                article{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
         }
     }
 }
